@@ -634,7 +634,7 @@
     #diff { background: var(--bg2); border-top: 1px solid var(--border); }
     .diff-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
-      align-items: center; margin-top: 48px;
+      align-items: start; margin-top: 48px;
     }
     .diff-list { display: flex; flex-direction: column; gap: 14px; }
     .diff-item {
@@ -674,7 +674,7 @@
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
-    .not-section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: .8px; color: var(--muted2); text-transform: uppercase; margin-bottom: 12px; margin-top: 28px; }
+    .not-section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: .8px; color: var(--muted2); text-transform: uppercase; margin-bottom: 12px; margin-top: 0; }
     .not-section-label.tight { margin-top: 28px; }
     .yes-section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: .8px; color: var(--green); text-transform: uppercase; margin-bottom: 12px; }
     .yes-item {
@@ -908,7 +908,7 @@
       .weeks-grid { grid-template-columns: repeat(2, 1fr); }
       .capstone-grid { grid-template-columns: 1fr 1fr; }
       .who-grid { grid-template-columns: 1fr 1fr; }
-      .diff-grid { grid-template-columns: 1fr; }
+      .diff-grid { grid-template-columns: 1fr; gap: 34px; }
       .footer-top { grid-template-columns: 1fr 1fr; }
       .contact-wrapper { grid-template-columns: 1fr; }
     }
