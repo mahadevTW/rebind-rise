@@ -1574,24 +1574,24 @@
         <div class="form-row">
           <div class="form-group">
             <label>First Name *</label>
-            <input type="text" placeholder="Arjun" required />
+            <input type="text" name="firstName" placeholder="Arjun" required />
           </div>
           <div class="form-group">
             <label>Last Name *</label>
-            <input type="text" placeholder="Kumar" required />
+            <input type="text" name="lastName" placeholder="Kumar" required />
           </div>
         </div>
         <div class="form-group">
           <label>Email Address *</label>
-          <input type="email" placeholder="you@email.com" required />
+          <input type="email" name="email" placeholder="you@email.com" required />
         </div>
         <div class="form-group">
           <label>Phone Number *</label>
-          <input type="tel" placeholder="+91 98765 43210" required />
+          <input type="tel" name="phone" placeholder="+91 98765 43210" required />
         </div>
         <div class="form-group">
           <label>Course Interested In</label>
-          <select>
+          <select name="course">
             <option value="">— Select a program —</option>
             <option>Agentic AI: AI Engineering Bootcamp</option>
             <option>Java Full Stack Developer</option>
@@ -1600,7 +1600,7 @@
         </div>
         <div class="form-group">
           <label>Years of Experience</label>
-          <select>
+          <select name="experience">
             <option value="">— Select —</option>
             <option>0–1 years (Fresher)</option>
             <option>1–2 years</option>
@@ -1610,9 +1610,9 @@
         </div>
         <div class="form-group">
           <label>Message</label>
-          <textarea placeholder="Tell us about your background, goals, or any questions..."></textarea>
+          <textarea name="message" placeholder="Tell us about your background, goals, or any questions..."></textarea>
         </div>
-        <button type="submit" class="btn-submit">Send Enquiry →</button>
+        <button type="submit" class="btn-submit" id="submitBtn">Send Enquiry →</button>
       </form>
       <div class="form-success" id="formSuccess">
         <div class="check">✅</div>
@@ -1730,9 +1730,36 @@
   document.querySelectorAll('.fi').forEach(el => io.observe(el));
 
   // Enquiry form submit
-  function submitForm(e) {
+  const APPS_SCRIPT_URL = 'https://script.google.com/a/macros/rebind.in/s/AKfycbzwZGAIAsmWcrVu2FoBL-Gq9iiQQXV_CI7GXUJ4hJQ8pADzpxUyknN_b07X9B8Srh9-Qg/exec';
+
+  async function submitForm(e) {
     e.preventDefault();
-    document.getElementById('contactForm').style.display = 'none';
+    const form = document.getElementById('contactForm');
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    const data = {
+      timestamp: new Date().toISOString(),
+      firstName: form.querySelector('[name="firstName"]').value,
+      lastName:  form.querySelector('[name="lastName"]').value,
+      email:     form.querySelector('[name="email"]').value,
+      phone:     form.querySelector('[name="phone"]').value,
+      course:    form.querySelector('[name="course"]').value,
+      experience:form.querySelector('[name="experience"]').value,
+      message:   form.querySelector('[name="message"]').value
+    };
+
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+    } catch (_) { /* no-cors never rejects on redirect */ }
+
+    form.style.display = 'none';
     document.getElementById('formSuccess').style.display = 'block';
   }
 
