@@ -1797,6 +1797,19 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.fi').forEach(el => io.observe(el));
 
+  // Referral tracking — read ?ref= from URL and persist for the session
+  const urlRef = new URLSearchParams(window.location.search).get('ref');
+  if (urlRef) sessionStorage.setItem('rr_ref', urlRef);
+  const refSource = sessionStorage.getItem('rr_ref') || '';
+
+  if (refSource) {
+    const banner = document.createElement('div');
+    banner.style.cssText = 'position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:rgba(79,142,247,0.15);border:1px solid rgba(79,142,247,0.3);color:var(--blue-bright);padding:8px 18px;border-radius:50px;font-size:0.78rem;font-weight:600;z-index:999;backdrop-filter:blur(8px);white-space:nowrap;pointer-events:none;';
+    banner.textContent = '\uD83C\uDF9F Referral offer applied';
+    document.body.appendChild(banner);
+    setTimeout(() => banner.remove(), 5000);
+  }
+
   // Enquiry form submit
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzwZGAIAsmWcrVu2FoBL-Gq9iiQQXV_CI7GXUJ4hJQ8pADzpxUyknN_b07X9B8Srh9-Qg/exec';
 
@@ -1815,7 +1828,8 @@
       phone:     form.querySelector('[name="phone"]').value,
       course:    form.querySelector('[name="course"]').value,
       experience:form.querySelector('[name="experience"]').value,
-      message:   form.querySelector('[name="message"]').value
+      message:   form.querySelector('[name="message"]').value,
+      ref:       refSource || 'direct'
     };
 
     if (!navigator.onLine) {
