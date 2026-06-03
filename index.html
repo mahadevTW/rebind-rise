@@ -66,7 +66,7 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       height: 64px;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex; align-items: center; justify-content: flex-start; gap: 32px;
       padding: 0 max(5%, calc((100vw - var(--container)) / 2));
       background: rgba(7,8,15,0.85);
       backdrop-filter: blur(16px);
@@ -76,26 +76,19 @@
     nav.scrolled { background: rgba(7,8,15,0.93); border-color: var(--border2); box-shadow: 0 12px 38px rgba(0,0,0,0.22); }
 
     .nav-logo {
-      display: flex; align-items: center; gap: 10px;
+      display: flex; align-items: center;
       text-decoration: none;
     }
-    .logo-mark {
-      width: 34px; height: 34px;
-      background: linear-gradient(135deg, var(--blue), var(--purple));
-      border-radius: 9px;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 900; font-size: 13px; color: white;
-      letter-spacing: -0.5px;
+    .nav-logo-img {
+      height: 86px;
+      width: auto;
+      padding-right: 100px;
+      display: block;
     }
-    .nav-logo .wordmark {
-      font-size: 1.1rem; font-weight: 800; color: var(--text);
-      letter-spacing: -0.3px;
-    }
-    .nav-logo .wordmark span { color: var(--blue); }
 
-    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-right { display: flex; align-items: center; gap: 12px; margin-left: auto; }
     .nav-links-desktop {
-      display: flex; gap: 28px; list-style: none; margin-right: 12px;
+      display: flex; gap: 28px; list-style: none;
     }
     .nav-links-desktop a {
       text-decoration: none; color: var(--muted);
@@ -169,7 +162,6 @@
     #hero {
       min-height: 100vh;
       display: flex; align-items: center; justify-content: center;
-      text-align: center;
       padding: 100px 5% 80px;
       position: relative;
       overflow: hidden;
@@ -189,7 +181,17 @@
       mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 80%);
     }
 
-    .hero-inner { position: relative; max-width: 820px; }
+    .hero-two-col {
+      display: flex; align-items: center; gap: 52px;
+      width: 100%; max-width: var(--container); position: relative;
+    }
+    .hero-inner { position: relative; flex: 1; text-align: center; }
+    .hero-img-col { flex-shrink: 0; width: 420px; }
+    .hero-img-col img {
+      width: 100%; display: block; border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 0 48px rgba(79,142,247,0.22), 0 24px 64px rgba(0,0,0,0.35);
+    }
 
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
@@ -857,7 +859,6 @@
       margin-bottom: 48px;
     }
     .footer-brand p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; margin-top: 14px; max-width: 280px; }
-    .footer-logo { text-decoration:none; display:inline-flex; align-items:center; gap:10px; }
     .footer-contact { margin-top:20px; display:flex; flex-direction:column; gap:10px; }
     .footer-contact-row { display:flex; align-items:flex-start; gap:9px; }
     .footer-contact-row .footer-contact-icon { font-size:13px; flex-shrink:0; margin-top:1px; }
@@ -916,6 +917,9 @@
     @media (max-width: 960px) {
       .nav-links-desktop { display: none; }
       .hamburger { display: flex; }
+      .hero-img-col { display: none; }
+      .hero-two-col { justify-content: center; }
+      .hero-inner { text-align: center; }
       .build-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; }
       .courses-wrapper { grid-template-columns: 1fr; }
@@ -1024,6 +1028,30 @@
       }
       .fi { opacity: 1; transform: none; }
     }
+
+
+    /* ── ABOUT INTRO LAYOUT ── */
+    .about-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 52px;
+      align-items: center;
+      margin-bottom: 48px;
+    }
+    .about-intro-img {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border2);
+      box-shadow: var(--shadow-soft);
+    }
+    .about-intro-img img {
+      width: 100%;
+      display: block;
+    }
+    @media (max-width: 960px) {
+      .about-intro { grid-template-columns: 1fr; gap: 28px; }
+      .about-intro-img { max-width: 420px; margin: 0 auto; }
+    }
   </style>
 </head>
 <body>
@@ -1031,8 +1059,7 @@
 <!-- NAV -->
 <nav id="navbar">
   <a href="#hero" class="nav-logo">
-    <div class="logo-mark">RR</div>
-    <span class="wordmark"><span>Rebind</span>Rise</span>
+    <img src="assets/main_logo.png" alt="RebindRise" class="nav-logo-img" />
   </a>
   <ul class="nav-links-desktop">
     <li><a href="#courses">Courses</a></li>
@@ -1074,6 +1101,7 @@
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
+  <div class="hero-two-col">
   <div class="hero-inner fi">
     <div class="hero-eyebrow">In-Person AI Engineering Bootcamp</div>
     <h1>
@@ -1105,6 +1133,10 @@
       <div class="stat"><div class="stat-n"><span>1</span></div><div class="stat-l">Production Capstone</div></div>
       <div class="stat"><div class="stat-n"><span>25</span></div><div class="stat-l">Max Batch Size</div></div>
     </div>
+  </div>
+  <div class="hero-img-col fi">
+    <img src="assets/ai_men.jpg" alt="AI Engineer building intelligent systems" loading="lazy" />
+  </div>
   </div>
 </section>
 
@@ -1154,12 +1186,17 @@
 
 <!-- ABOUT / PILLARS -->
 <section id="about">
-  <div class="tc fi container">
-    <div class="section-label">Philosophy</div>
-    <h2 class="section-h">AI is changing software engineering.</h2>
-    <p class="section-p max-680 mx-auto">
-      The next generation of engineers will not just write software — they will orchestrate intelligent systems. RebindRise is designed to help software engineers transition into modern AI engineering through deep hands-on learning and real application building.
-    </p>
+  <div class="about-intro fi container">
+    <div>
+      <div class="section-label">Philosophy</div>
+      <h2 class="section-h">AI is changing software engineering.</h2>
+      <p class="section-p max-680">
+        The next generation of engineers will not just write software — they will orchestrate intelligent systems. RebindRise is designed to help software engineers transition into modern AI engineering through deep hands-on learning and real application building.
+      </p>
+    </div>
+    <div class="about-intro-img">
+      <img src="assets/tiered_ai.jpg" alt="Navigating the overwhelming world of AI tools" loading="lazy" />
+    </div>
   </div>
   <div class="about-grid container">
     <div class="pillar-card p1 fi">
@@ -1721,10 +1758,6 @@
 <footer>
   <div class="footer-top container">
     <div class="footer-brand">
-      <a href="#hero" class="nav-logo footer-logo">
-        <div class="logo-mark">RR</div>
-        <span class="wordmark"><span>Rebind</span>Rise</span>
-      </a>
       <p>A premium in-person bootcamp for software engineers who want to build real-world AI applications and ship production-ready AI systems.</p>
       <div class="footer-contact">
         <div class="footer-contact-row">
