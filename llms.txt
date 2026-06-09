@@ -1,0 +1,66 @@
+# RebindRise — AI Engineering & Full Stack Bootcamp
+
+## About
+
+RebindRise is a premium in-person AI Engineering & Java Full Stack bootcamp based in Hinjawadi, Pune, India.
+It is a product of Mutex Software Innovations Private Limited.
+
+Website: https://rebindrise.com
+Email: hello@rebind.in
+Phone: +91 9156929220
+Location: Hinjawadi, Pune, Maharashtra, India
+
+## What We Offer
+
+RebindRise runs two flagship programs:
+
+### 1. Agentic AI Engineering Bootcamp
+A 10-week weekend bootcamp teaching engineers to build production-ready AI systems from scratch.
+
+Topics covered:
+- LLM integration and prompt engineering
+- RAG (Retrieval-Augmented Generation) systems
+- Tool calling and function-calling agents
+- Agentic AI architecture and multi-agent systems
+- AI application deployment and production practices
+- Capstone project: "AI Engineering Assistant" — a fully deployed AI product
+
+### 2. Java Full Stack Development Course
+A comprehensive training covering:
+- Java, Spring Boot, REST APIs
+- MySQL, PostgreSQL, JPA, Hibernate ORM
+- Frontend integration
+
+## Key Facts
+
+- Batch size: Maximum 25 students per cohort
+- Format: In-person (Hinjawadi, Pune) + online access
+- Schedule: Weekends only — Saturday & Sunday (4–5 hours per day)
+- Next batch: 15 June 2026
+- Suitable for: Working engineers who want to upskill in AI without quitting their job
+- Prerequisites: Basic programming knowledge; no prior AI/ML experience needed
+- Hardware: Any laptop with 8 GB RAM (Windows, macOS, or Linux)
+
+## Entity Information
+
+- Organization: RebindRise (Mutex Software Innovations Private Limited)
+- Type: Educational Organization / AI Bootcamp / Software Training Institute
+- Domain: rebindrise.com
+- Country: India
+
+## Frequently Asked Questions
+
+Q: Who is this bootcamp for?
+A: Software engineers who want to build real-world AI systems, RAG pipelines, and AI agents — not just use AI tools.
+
+Q: Is this online or in-person?
+A: Primarily in-person in Pune, with online access so students never fall behind.
+
+Q: Can I join while working full-time?
+A: Yes. Sessions are on weekends only (Saturday & Sunday), designed for working professionals.
+
+Q: What will I build?
+A: A production-deployed "AI Engineering Assistant" as a capstone project, plus weekly hands-on builds throughout the program.
+
+Q: What is the refund policy?
+A: Full refund within 7 days of payment if the cohort has not started. Non-refundable after cohort begins.
