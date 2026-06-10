@@ -1,0 +1,17 @@
+{
+  "name": "RebindRise – AI Engineering Bootcamp",
+  "short_name": "RebindRise",
+  "description": "Build production AI systems at RebindRise bootcamp in Pune.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07080f",
+  "theme_color": "#4f8ef7",
+  "icons": [
+    {
+      "src": "/assets/main_logo.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
