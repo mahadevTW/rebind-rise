@@ -2129,10 +2129,19 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.fi').forEach(el => io.observe(el));
 
-  // Referral tracking — read ?ref= from URL and persist for the session
-  const urlRef = new URLSearchParams(window.location.search).get('ref');
+  // Referral + UTM tracking — read params from URL and persist for the session
+  const _params = new URLSearchParams(window.location.search);
+  const urlRef = _params.get('ref');
   if (urlRef) sessionStorage.setItem('rr_ref', urlRef);
   const refSource = sessionStorage.getItem('rr_ref') || '';
+
+  ['utm_source', 'utm_medium', 'utm_campaign'].forEach(key => {
+    const val = _params.get(key);
+    if (val) sessionStorage.setItem(key, val);
+  });
+  const utmSource   = sessionStorage.getItem('utm_source')   || '';
+  const utmMedium   = sessionStorage.getItem('utm_medium')   || '';
+  const utmCampaign = sessionStorage.getItem('utm_campaign') || '';
 
   if (refSource) {
     const banner = document.createElement('div');
@@ -2140,6 +2149,13 @@
     banner.textContent = '\uD83C\uDF9F Referral offer applied';
     document.body.appendChild(banner);
     setTimeout(() => banner.remove(), 5000);
+
+    // Auto-scroll to enquiry form when arriving via a referral link
+    if (urlRef) {
+      setTimeout(() => {
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 400);
+    }
   }
 
   // Enquiry form submit
@@ -2160,8 +2176,11 @@
       phone:     form.querySelector('[name="phone"]').value,
       course:    form.querySelector('[name="course"]').value,
       experience:form.querySelector('[name="experience"]').value,
-      message:   form.querySelector('[name="message"]').value,
-      ref:       refSource || 'direct'
+      message:     form.querySelector('[name="message"]').value,
+      ref:         refSource   || 'direct',
+      utm_source:  utmSource   || 'direct',
+      utm_medium:  utmMedium   || '',
+      utm_campaign:utmCampaign || ''
     };
 
     if (!navigator.onLine) {
