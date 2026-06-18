@@ -92,24 +92,19 @@
         /* ── NAV ── */
         nav {
           position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-          height: 82px;
+          height: 70px;
           display: flex; align-items: center; justify-content: center;
           padding: 0 max(4%, calc((100vw - var(--container)) / 2));
-          background: transparent;
-          border-bottom: none;
-          transition: none;
+          background: #ffffff;
+          border-bottom: 1px solid rgba(0,0,0,0.08);
+          box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+          transition: box-shadow .3s;
         }
         .nav-inner {
           display: flex; align-items: center; gap: 20px;
           width: 100%; max-width: var(--container);
-          padding: 0 24px;
-          height: 56px;
-          background: #ffffff;
-          border: 1px solid rgba(0,0,0,0.08);
-          border-radius: 999px;
-          transition: box-shadow .3s;
         }
-        nav.scrolled .nav-inner { box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
+        nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.12); }
 
         .nav-logo {
           display: flex; align-items: center;
