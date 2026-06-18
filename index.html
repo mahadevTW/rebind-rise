@@ -7,7 +7,7 @@
   <meta name="description" content="Build production AI systems at RebindRise bootcamp in Pune. Learn RAG, AI agents, tool calling & Java full stack development with expert mentorship." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://rebindrise.com/" />
-  <link rel="icon" type="image/png" href="/assets/main_logo.png" />
+  <link rel="icon" type="image/png" href="/assets/img.png" />
   <link rel="apple-touch-icon" href="/assets/main_logo.png" />
   <link rel="manifest" href="/manifest.json" />
 
@@ -92,9 +92,9 @@
     /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      height: 64px;
-      display: flex; align-items: center; justify-content: flex-start; gap: 32px;
-      padding: 0 max(5%, calc((100vw - var(--container)) / 2));
+      height: 82px;
+      display: flex; align-items: center; justify-content: flex-start; gap: 20px;
+      padding: 0 max(4%, calc((100vw - var(--container)) / 2));
       background: rgba(7,8,15,0.85);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
@@ -107,37 +107,40 @@
       text-decoration: none;
     }
     .nav-logo-img {
-      height: 86px;
+      height: 68px;
       width: auto;
-      padding-right: 100px;
+      max-width: 280px;
       display: block;
+      object-fit: contain;
     }
 
-    .nav-right { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+    .nav-right { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
     .nav-links-desktop {
-      display: flex; gap: 28px; list-style: none;
+      display: flex; gap: 20px; list-style: none;
     }
     .nav-links-desktop a {
       text-decoration: none; color: var(--muted);
-      font-size: 0.875rem; font-weight: 500;
+      font-size: 0.82rem; font-weight: 500;
+      white-space: nowrap;
       transition: color .2s, opacity .2s;
     }
     .nav-links-desktop a:hover { color: var(--text); }
 
     .btn-wa {
-      display: flex; align-items: center; gap: 7px;
-      background: #25d366;
-      color: white;
+      display: flex; align-items: center; gap: 6px;
+      background: rgba(37,211,102,0.08);
+      color: #34d399;
       text-decoration: none;
-      padding: 8px 16px;
-      min-height: 48px;
+      padding: 7px 13px;
+      min-height: 36px;
       border-radius: 8px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      box-shadow: 0 10px 26px rgba(37,211,102,0.16);
-      transition: background .2s, transform .15s, box-shadow .2s;
+      white-space: nowrap;
+      border: 1px solid rgba(37,211,102,0.35);
+      transition: background .2s, border-color .2s, transform .15s;
     }
-    .btn-wa:hover { background: #1fb558; transform: translateY(-1px); }
+    .btn-wa:hover { background: rgba(37,211,102,0.15); border-color: rgba(37,211,102,0.6); transform: translateY(-1px); }
     .btn-wa svg { flex-shrink: 0; }
 
     .btn-reserve {
@@ -145,15 +148,17 @@
       background: linear-gradient(135deg, var(--blue), var(--purple));
       color: white;
       text-decoration: none;
-      padding: 8px 18px;
-      min-height: 48px;
+      padding: 7px 15px;
+      min-height: 36px;
       border-radius: 8px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 700;
-      box-shadow: 0 10px 28px rgba(79,142,247,0.22);
+      white-space: nowrap;
+      border: 1px solid transparent;
+      box-shadow: 0 4px 18px rgba(79,142,247,0.3);
       transition: opacity .2s, transform .15s, box-shadow .2s;
     }
-    .btn-reserve:hover { opacity: .88; transform: translateY(-1px); }
+    .btn-reserve:hover { opacity: .9; transform: translateY(-1px); box-shadow: 0 6px 24px rgba(79,142,247,0.45); }
 
     .hamburger {
       display: none; flex-direction: column; gap: 5px;
@@ -168,7 +173,7 @@
     /* ── MOBILE MENU ── */
     .mobile-menu {
       display: none; position: fixed;
-      top: 64px; left: 0; right: 0; bottom: 0;
+      top: 82px; left: 0; right: 0; bottom: 0;
       background: var(--bg2);
       padding: 28px 5%;
       flex-direction: column; gap: 8px;
@@ -186,43 +191,80 @@
     .mobile-menu a:hover { color: var(--text); border-color: var(--border2); background: var(--card); }
     .mobile-menu .mobile-ctas { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
     .mobile-menu .btn-wa, .mobile-menu .btn-reserve { justify-content: center; padding: 13px; font-size: 0.95rem; }
-    .mobile-menu .btn-wa { display: flex; color: white; }
+    .mobile-menu .btn-wa { display: flex; color: #34d399; }
+    .mobile-menu .btn-reserve { display: flex; color: white; }
 
-    /* ── HERO ── */
+    /* ── HERO SLIDER ── */
     #hero {
-      min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      padding: 100px 5% 80px;
+      height: 100vh;
+      padding: 0;
       position: relative;
       overflow: hidden;
     }
 
     .hero-bg {
-      position: absolute; inset: 0;
+      position: absolute; inset: 0; z-index: 0;
       background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(79,142,247,0.18) 0%, transparent 70%),
                   radial-gradient(ellipse 60% 50% at 80% 60%, rgba(167,139,250,0.12) 0%, transparent 60%),
                   radial-gradient(ellipse 50% 40% at 20% 80%, rgba(34,211,238,0.08) 0%, transparent 60%);
     }
     .hero-grid {
-      position: absolute; inset: 0;
+      position: absolute; inset: 0; z-index: 0;
       background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
                         linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
       background-size: 60px 60px;
       mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 80%);
     }
 
-    .hero-two-col {
-      display: flex; align-items: center; gap: 52px;
-      width: 100%; max-width: var(--container); position: relative;
+    /* Slider track */
+    .hero-slider {
+      display: flex;
+      width: 300%;
+      height: 100vh;
+      transition: transform 0.7s cubic-bezier(0.77,0,0.18,1);
+      position: relative; z-index: 1;
     }
-    .hero-inner { position: relative; flex: 1; text-align: center; }
-    .hero-img-col { flex-shrink: 0; width: 420px; }
+    .hero-slide {
+      width: calc(100% / 3);
+      height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+      padding: 94px 5% 54px;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .hero-slide-top {
+      display: flex; align-items: flex-start; gap: 40px;
+      width: 100%; max-width: var(--container);
+      flex: 1;
+    }
+    .hero-slide-stats {
+      width: 100%; max-width: var(--container);
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Two-col layout inside each slide */
+    .hero-two-col {
+      display: flex; align-items: flex-start; gap: 40px;
+      width: 100%; max-width: var(--container); position: relative;
+      padding-top: 8px;
+      flex: 1;
+    }
+    .hero-inner { position: relative; flex: 1; min-width: 0; text-align: left; }
+    .hero-inner .hero-eyebrow { display: inline-flex; }
+    .hero-inner h1 { text-align: left; }
+    .hero-inner .sub { text-align: left; margin-left: 0; margin-right: 0; max-width: none; }
+    .hero-inner .hero-ctas { justify-content: flex-start; }
+    .hero-inner .hero-trust { justify-content: flex-start; }
+    .hero-img-col { flex-shrink: 0; width: 380px; }
+
     .hero-img-col img {
       width: 100%; display: block; border-radius: 20px;
       border: 1px solid rgba(255,255,255,0.1);
       box-shadow: 0 0 48px rgba(79,142,247,0.22), 0 24px 64px rgba(0,0,0,0.35);
     }
 
+    /* Eyebrow badge */
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
       background: rgba(79,142,247,0.1);
@@ -234,9 +276,23 @@
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
-      margin-bottom: 28px;
+      margin-bottom: 12px;
       box-shadow: inset 0 0 20px rgba(79,142,247,0.08);
     }
+    .hero-eyebrow.green {
+      background: rgba(52,211,153,0.1);
+      border-color: rgba(52,211,153,0.3);
+      color: var(--green);
+      box-shadow: inset 0 0 20px rgba(52,211,153,0.08);
+    }
+    .hero-eyebrow.green::before { background: var(--green); }
+    .hero-eyebrow.orange {
+      background: rgba(251,146,60,0.1);
+      border-color: rgba(251,146,60,0.3);
+      color: var(--orange);
+      box-shadow: inset 0 0 20px rgba(251,146,60,0.08);
+    }
+    .hero-eyebrow.orange::before { background: var(--orange); }
     .hero-eyebrow::before {
       content: '';
       width: 6px; height: 6px;
@@ -250,12 +306,12 @@
     }
 
     #hero h1 {
-      font-size: clamp(2.35rem, 5.7vw, 4.15rem);
+      font-size: clamp(1.65rem, 3vw, 2.6rem);
       font-weight: 900;
-      line-height: 1.08;
-      letter-spacing: -1.5px;
+      line-height: 1.12;
+      letter-spacing: -1px;
       color: var(--text);
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
     #hero h1 .gradient {
       background: linear-gradient(90deg, var(--blue-bright), var(--purple), var(--cyan));
@@ -263,30 +319,50 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+    #hero h1 .gradient-green {
+      background: linear-gradient(90deg, var(--green), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    #hero h1 .gradient-orange {
+      background: linear-gradient(90deg, var(--orange), #f59e0b, var(--green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
     #hero .sub {
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       color: var(--muted);
-      line-height: 1.75;
+      line-height: 1.6;
       max-width: 620px;
-      margin: 0 auto 34px;
+      margin: 0 auto 14px;
     }
 
     .hero-ctas {
-      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
-      margin-bottom: 18px;
+      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+      margin-bottom: 10px;
     }
     .hero-cta-primary {
       display: flex; align-items: center; gap: 8px;
       background: linear-gradient(135deg, var(--blue), var(--purple));
       color: white;
       text-decoration: none;
-      padding: 14px 28px;
+      padding: 12px 24px;
       border-radius: 10px;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       transition: opacity .2s, transform .2s;
       box-shadow: 0 0 32px rgba(79,142,247,0.35);
+    }
+    .hero-cta-primary.green-btn {
+      background: linear-gradient(135deg, var(--green), #059669);
+      box-shadow: 0 0 32px rgba(52,211,153,0.35);
+    }
+    .hero-cta-primary.orange-btn {
+      background: linear-gradient(135deg, var(--orange), #d97706);
+      box-shadow: 0 0 32px rgba(251,146,60,0.35);
     }
     .hero-cta-primary:hover { opacity: .9; transform: translateY(-2px); }
     .hero-cta-wa {
@@ -294,20 +370,22 @@
       background: rgba(255,255,255,0.06);
       color: var(--text);
       text-decoration: none;
-      padding: 14px 28px;
+      padding: 12px 24px;
       border-radius: 10px;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       border: 1px solid var(--border2);
       transition: background .2s, transform .2s;
     }
     .hero-cta-wa:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+
     .hero-trust {
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 56px;
+      display: flex; align-items: center; justify-content: flex-start; gap: 6px;
+      flex-wrap: nowrap;
+      margin-bottom: 12px;
       color: var(--muted2);
-      font-size: 0.78rem;
+      font-size: 0.72rem;
+      overflow: hidden;
     }
     .hero-trust span {
       display: inline-flex; align-items: center; gap: 7px;
@@ -322,29 +400,78 @@
       background: var(--cyan);
       box-shadow: 0 0 12px rgba(34,211,238,0.55);
     }
+    .hero-trust span.green-dot::before { background: var(--green); box-shadow: 0 0 12px rgba(52,211,153,0.55); }
+    .hero-trust span.orange-dot::before { background: var(--orange); box-shadow: 0 0 12px rgba(251,146,60,0.55); }
 
     .hero-stats {
       display: grid;
-      grid-template-columns: repeat(4, minmax(120px, 1fr));
-      gap: 14px;
-      padding-top: 28px;
+      grid-template-columns: repeat(4, minmax(100px, 1fr));
+      gap: 8px;
+      padding-top: 12px;
       border-top: 1px solid var(--border);
-      max-width: 700px;
-      margin: 0 auto;
     }
     .stat {
       text-align: center;
-      padding: 12px 10px;
+      padding: 10px 8px;
       border-radius: 12px;
       background: rgba(255,255,255,0.025);
       border: 1px solid rgba(255,255,255,0.045);
     }
     .stat-n {
-      font-size: 1.8rem; font-weight: 900; color: var(--text);
+      font-size: 1.5rem; font-weight: 900; color: var(--text);
       font-variant-numeric: tabular-nums;
     }
     .stat-n span { background: linear-gradient(90deg, var(--blue), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat-n span.g { background: linear-gradient(90deg, var(--green), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat-n span.o { background: linear-gradient(90deg, var(--orange), #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .stat-l { font-size: 0.75rem; color: var(--muted2); margin-top: 3px; letter-spacing: .3px; }
+
+    /* Career card grid for slide 3 */
+    .career-pillars {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 10px;
+      margin-bottom: 18px;
+    }
+    .career-pillar {
+      padding: 14px 10px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+    }
+    .career-pillar-icon { font-size: 1.6rem; margin-bottom: 8px; }
+    .career-pillar-title { font-weight: 800; font-size: 0.85rem; color: var(--text); letter-spacing: .5px; text-transform: uppercase; }
+    .career-pillar-sub { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+
+    /* Slider controls */
+    .hero-controls {
+      position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+      z-index: 10;
+      display: flex; align-items: center; gap: 20px;
+    }
+    .hero-dots {
+      display: flex; gap: 10px;
+    }
+    .hero-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      border: none; cursor: pointer; padding: 0;
+      transition: background .3s, transform .3s, width .3s;
+    }
+    .hero-dot.active {
+      background: var(--blue-bright);
+      width: 24px; border-radius: 4px;
+      box-shadow: 0 0 10px rgba(107,163,255,0.6);
+    }
+    .hero-arrow {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s, transform .15s;
+    }
+    .hero-arrow:hover { background: rgba(255,255,255,0.14); transform: scale(1.08); }
+
 
     /* ── SECTIONS BASE ── */
     section { padding: 96px 5%; scroll-margin-top: 84px; }
@@ -951,6 +1078,11 @@
       .hero-img-col { display: none; }
       .hero-two-col { justify-content: center; }
       .hero-inner { text-align: center; }
+      .hero-inner h1, .hero-inner .sub { text-align: center; }
+      .hero-inner .hero-ctas { justify-content: center; }
+      .hero-inner .hero-trust { justify-content: center; }
+      .hero-inner .hero-stats { margin: 0 auto; }
+      .career-pillars { grid-template-columns: repeat(3,1fr); gap: 10px; }
       .build-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; }
       .courses-wrapper { grid-template-columns: 1fr; }
@@ -965,7 +1097,8 @@
     @media (max-width: 600px) {
       /* spacing */
       section { padding: 64px 4%; scroll-margin-top: 76px; }
-      #hero { min-height: auto; padding: 110px 4% 58px; }
+      #hero { height: 100vh; }
+      .hero-slide { padding: 76px 4% 76px; }
 
       /* hero */
       #hero h1 { font-size: 2.05rem; letter-spacing: -0.8px; line-height: 1.12; }
@@ -973,14 +1106,20 @@
       .hero-eyebrow { font-size: 0.66rem; padding: 5px 12px; max-width: 100%; letter-spacing: .8px; }
       .hero-ctas { flex-direction: column; align-items: stretch; }
       .hero-cta-primary, .hero-cta-wa { justify-content: center; padding: 14px 20px; }
-      .hero-trust { margin-bottom: 42px; gap: 8px; }
+      .hero-trust { margin-bottom: 32px; gap: 8px; }
       .hero-trust span { width: 100%; justify-content: center; }
       .hero-stats { grid-template-columns: 1fr 1fr; gap: 10px; padding-top: 24px; }
+      .hero-inner h1, .hero-inner .sub { text-align: center; }
+      .hero-inner .hero-ctas { justify-content: center; }
+      .hero-inner .hero-trust { justify-content: center; }
+      .career-pillars { grid-template-columns: repeat(3,1fr); gap: 8px; }
+      .career-pillar { padding: 10px 8px; }
+      .career-pillar-icon { font-size: 1.2rem; }
       .stat-n { font-size: 1.4rem; }
       .stat-l { font-size: 0.7rem; }
 
       /* nav */
-      .nav-logo .wordmark { font-size: 1rem; }
+      .nav-logo-img { height: 52px; max-width: 220px; }
       .btn-wa { display: none; }
       .btn-reserve { display: none; }
       .mobile-menu .btn-wa, .mobile-menu .btn-reserve { display: flex; }
@@ -1309,47 +1448,174 @@
 </header>
 
 <main>
-<!-- HERO -->
+<!-- HERO SLIDER -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
-  <div class="hero-two-col">
-  <div class="hero-inner fi">
-    <div class="hero-eyebrow">In-Person AI Engineering Bootcamp</div>
-    <h1>
-      Master AI Engineering &amp; Java Full Stack Development<br />
-      <span class="gradient">with Industry-Ready Projects.</span>
-    </h1>
-    <p class="sub">
-      A premium hands-on bootcamp for software engineers who want to build real-world AI applications, RAG systems, AI agents, and deploy production-ready AI products using modern AI engineering practices.
-    </p>
-    <div class="hero-ctas">
-      <a href="#contact" class="hero-cta-primary" onclick="gtag('event','cta_click',{'button_location':'hero_apply'})">
-        Apply for Upcoming Cohort
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="https://wa.me/919156929220?text=Hi%2C%20I%27m%20interested%20in%20RebindRise%20bootcamp" class="hero-cta-wa" target="_blank" onclick="gtag('event','whatsapp_click',{'button_location':'hero'})">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Talk on WhatsApp
-      </a>
+
+  <!-- Slides track -->
+  <div class="hero-slider" id="heroSlider">
+
+    <!-- SLIDE 1: AI Engineering Bootcamp -->
+    <div class="hero-slide">
+      <div class="hero-two-col">
+        <div class="hero-inner fi">
+          <div class="hero-eyebrow">In-Person AI Engineering Bootcamp</div>
+          <h1>
+            Master AI Engineering Bootcamp
+            <span class="gradient">with Industry-Ready Projects.</span>
+          </h1>
+          <p class="sub">
+            A premium hands-on bootcamp for software engineers who want to build real-world AI applications, RAG systems, AI agents, and deploy production-ready AI products using modern AI engineering practices.
+          </p>
+          <div class="hero-ctas">
+            <a href="#contact" class="hero-cta-primary" onclick="gtag('event','cta_click',{'button_location':'hero_ai_apply'})">
+              Apply for Upcoming Cohort
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://wa.me/919156929220?text=Hi%2C%20I%27m%20interested%20in%20the%20AI%20Engineering%20Bootcamp" class="hero-cta-wa" target="_blank" onclick="gtag('event','whatsapp_click',{'button_location':'hero_ai'})">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Talk on WhatsApp
+            </a>
+          </div>
+          <div class="hero-trust">
+            <span>Weekend-friendly cohort</span>
+            <span>Pune(Offline)</span>
+            <span>Portfolio-grade capstone</span>
+            <span>Next batch: July 2026</span>
+          </div>
+        </div>
+        <div class="hero-img-col fi">
+          <img src="assets/ai_men.jpg" alt="AI Engineer building intelligent systems" loading="lazy" />
+        </div>
+      </div>
+      <div class="hero-slide-stats">
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-n"><span>10</span></div><div class="stat-l">Weeks</div></div>
+          <div class="stat"><div class="stat-n"><span>20</span></div><div class="stat-l">Hands-On Sessions</div></div>
+          <div class="stat"><div class="stat-n"><span>1</span></div><div class="stat-l">Production Capstone</div></div>
+          <div class="stat"><div class="stat-n"><span>25</span></div><div class="stat-l">Max Batch Size</div></div>
+        </div>
+      </div>
     </div>
-    <div class="hero-trust">
-      <span>Weekend-friendly cohort</span>
-      <span>Pune + online access</span>
-      <span>Portfolio-grade capstone</span>
-      <span>Next batch: 15 June 2026</span>
+
+    <!-- SLIDE 2: Java Full Stack Developer AI -->
+    <div class="hero-slide">
+      <div class="hero-two-col">
+        <div class="hero-inner fi">
+          <div class="hero-eyebrow green">In-Person Java Full Stack Bootcamp</div>
+          <h1>
+            Become a Java Full Stack Developer
+            <span class="gradient-green">Powered by AI from Day One.</span>
+          </h1>
+          <p class="sub">
+            A comprehensive in-person program covering Java, Spring Boot, React, microservices, and AI integration — designed to take you from fundamentals to a job-ready full stack engineer with real project experience.
+          </p>
+          <div class="hero-ctas">
+            <a href="#contact" class="hero-cta-primary green-btn" onclick="gtag('event','cta_click',{'button_location':'hero_java_apply'})">
+              Apply for Upcoming Cohort
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://wa.me/919156929220?text=Hi%2C%20I%27m%20interested%20in%20the%20Java%20Full%20Stack%20AI%20Program" class="hero-cta-wa" target="_blank" onclick="gtag('event','whatsapp_click',{'button_location':'hero_java'})">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Talk on WhatsApp
+            </a>
+          </div>
+          <div class="hero-trust">
+            <span class="green-dot">Weekend-friendly cohort</span>
+            <span class="green-dot">Pune(Offline)</span>
+            <span class="green-dot">End-to-end capstone project</span>
+            <span class="green-dot">Next batch: July 2026</span>
+          </div>
+        </div>
+        <div class="hero-img-col fi">
+          <img src="assets/tiered_ai.jpg" alt="Java Full Stack Developer with AI skills" loading="lazy" />
+        </div>
+      </div>
+      <div class="hero-slide-stats">
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-n"><span class="g">16</span></div><div class="stat-l">Weeks</div></div>
+          <div class="stat"><div class="stat-n"><span class="g">30</span></div><div class="stat-l">Hands-On Sessions</div></div>
+          <div class="stat"><div class="stat-n"><span class="g">1</span></div><div class="stat-l">Live Projects</div></div>
+          <div class="stat"><div class="stat-n"><span class="g">25</span></div><div class="stat-l">Max Batch Size</div></div>
+        </div>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div class="stat"><div class="stat-n"><span>10</span></div><div class="stat-l">Weeks</div></div>
-      <div class="stat"><div class="stat-n"><span>20</span></div><div class="stat-l">Hands-On Sessions</div></div>
-      <div class="stat"><div class="stat-n"><span>1</span></div><div class="stat-l">Production Capstone</div></div>
-      <div class="stat"><div class="stat-n"><span>25</span></div><div class="stat-l">Max Batch Size</div></div>
+
+    <!-- SLIDE 3: Career Switch / Career Upgrade -->
+    <div class="hero-slide">
+      <div class="hero-two-col">
+        <div class="hero-inner fi">
+          <div class="hero-eyebrow orange">Personal AI Career Mentorship</div>
+          <h1>
+            Looking for a Career Switch
+            <span class="gradient-orange">or Career Upgrade?</span>
+          </h1>
+          <p class="sub">
+            Get a personalized roadmap built for you. Our AI-powered Career Guidance Platform combined with 1-on-1 Expert Mentorship helps you identify the fastest path to a better role, company, and salary.
+          </p>
+          <div class="career-pillars">
+            <div class="career-pillar">
+              <div class="career-pillar-icon">💰</div>
+              <div class="career-pillar-title">Better Package</div>
+              <div class="career-pillar-sub">Higher salary. Better growth.</div>
+            </div>
+            <div class="career-pillar">
+              <div class="career-pillar-icon">🏢</div>
+              <div class="career-pillar-title">Better Company</div>
+              <div class="career-pillar-sub">Top companies. Great culture.</div>
+            </div>
+            <div class="career-pillar">
+              <div class="career-pillar-icon">🚀</div>
+              <div class="career-pillar-title">Better Role</div>
+              <div class="career-pillar-sub">Meaningful work. Faster growth.</div>
+            </div>
+          </div>
+          <div class="hero-ctas">
+            <a href="https://app.rebindrise.com" class="hero-cta-primary orange-btn" onclick="gtag('event','cta_click',{'button_location':'hero_career_roadmap'})">
+              Get Your Personalized Career Roadmap
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://wa.me/919156929220?text=Hi%2C%20I%27m%20looking%20for%20a%20Career%20Switch%20or%20Career%20Upgrade%20guidance" class="hero-cta-wa" target="_blank" onclick="gtag('event','whatsapp_click',{'button_location':'hero_career'})">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Talk on WhatsApp
+            </a>
+          </div>
+          <div class="hero-trust">
+            <span class="orange-dot">100% Personalized Guidance</span>
+            <span class="orange-dot">AI-Powered Career Analysis</span>
+            <span class="orange-dot">1-on-1 Expert Mentorship</span>
+            <span class="orange-dot">Industry-Aligned Roadmap</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-slide-stats">
+        <div class="hero-stats career-stats">
+          <div class="stat"><div class="stat-n"><span class="o">AI</span></div><div class="stat-l">Career Assessment</div></div>
+          <div class="stat"><div class="stat-n"><span class="o">1:1</span></div><div class="stat-l">Expert Mentorship</div></div>
+          <div class="stat"><div class="stat-n"><span class="o">100%</span></div><div class="stat-l">Personalised Roadmap</div></div>
+          <div class="stat"><div class="stat-n"><span class="o">∞</span></div><div class="stat-l">Career Support</div></div>
+        </div>
+      </div>
     </div>
+
+  </div><!-- /hero-slider -->
+
+  <!-- Nav arrows + dots -->
+  <div class="hero-controls">
+    <button class="hero-arrow" id="heroPrev" aria-label="Previous program">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    </button>
+    <div class="hero-dots" id="heroDots">
+      <button class="hero-dot active" data-slide="0" aria-label="AI Engineering"></button>
+      <button class="hero-dot" data-slide="1" aria-label="Java Full Stack AI"></button>
+      <button class="hero-dot" data-slide="2" aria-label="Career Switch"></button>
+    </div>
+    <button class="hero-arrow" id="heroNext" aria-label="Next program">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
   </div>
-  <div class="hero-img-col fi">
-    <img src="assets/ai_men.jpg" alt="AI Engineer building intelligent systems" loading="lazy" />
-  </div>
-  </div>
+
 </section>
 
 <!-- WHAT YOU BUILD -->
@@ -2122,6 +2388,48 @@
   document.addEventListener('click', (e) => {
     if (!nav.contains(e.target) && !mm.contains(e.target)) closeMobile();
   });
+
+  // Hero slider
+  (function() {
+    const slider = document.getElementById('heroSlider');
+    const dots = document.querySelectorAll('#heroDots .hero-dot');
+    const total = 3;
+    let current = 0;
+    let autoTimer = null;
+
+    function goTo(idx) {
+      current = (idx + total) % total;
+      slider.style.transform = 'translateX(-' + (current * 100 / 3) + '%)';
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      // trigger fade-in for visible slide's .fi elements
+      const activeSlide = slider.children[current];
+      activeSlide.querySelectorAll('.fi').forEach(el => {
+        el.classList.remove('visible');
+        requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('visible')));
+      });
+    }
+
+    function startAuto() {
+      stopAuto();
+      autoTimer = setInterval(() => goTo(current + 1), 5000);
+    }
+    function stopAuto() { clearInterval(autoTimer); }
+
+    document.getElementById('heroNext').addEventListener('click', () => { goTo(current + 1); startAuto(); });
+    document.getElementById('heroPrev').addEventListener('click', () => { goTo(current - 1); startAuto(); });
+    dots.forEach(d => d.addEventListener('click', () => { goTo(+d.dataset.slide); startAuto(); }));
+
+    // Touch / swipe support
+    let touchStartX = 0;
+    slider.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+    slider.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) { goTo(dx < 0 ? current + 1 : current - 1); startAuto(); }
+    }, {passive:true});
+
+    goTo(0);
+    startAuto();
+  })();
 
   // Scroll fade-in
   const io = new IntersectionObserver((entries) => {
