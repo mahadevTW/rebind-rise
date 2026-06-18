@@ -93,14 +93,23 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       height: 82px;
-      display: flex; align-items: center; justify-content: flex-start; gap: 20px;
+      display: flex; align-items: center; justify-content: center;
       padding: 0 max(4%, calc((100vw - var(--container)) / 2));
-      background: rgba(7,8,15,0.85);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      transition: border-color .3s, background .3s, box-shadow .3s;
+      background: transparent;
+      border-bottom: none;
+      transition: none;
     }
-    nav.scrolled { background: rgba(7,8,15,0.93); border-color: var(--border2); box-shadow: 0 12px 38px rgba(0,0,0,0.22); }
+    .nav-inner {
+      display: flex; align-items: center; gap: 20px;
+      width: 100%; max-width: var(--container);
+      padding: 0 24px;
+      height: 56px;
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 999px;
+      transition: box-shadow .3s;
+    }
+    nav.scrolled .nav-inner { box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
 
     .nav-logo {
       display: flex; align-items: center;
@@ -119,13 +128,13 @@
       display: flex; gap: 20px; list-style: none; margin-left: auto;
     }
     .nav-links-desktop a {
-      text-decoration: none; color: var(--muted);
+      text-decoration: none; color: #444;
       font-size: 1.2rem; font-weight: 500;
       white-space: nowrap;
       padding: 6px 10px;
-      transition: color .2s, opacity .2s;
+      transition: color .2s;
     }
-    .nav-links-desktop a:hover { color: var(--text); }
+    .nav-links-desktop a:hover { color: #000; }
 
     .btn-wa {
       display: flex; align-items: center; gap: 6px;
@@ -1407,22 +1416,24 @@
 <!-- NAV -->
 <header>
 <nav id="navbar">
-  <a href="#hero" class="nav-logo">
-    <img src="assets/main_logo.png" alt="RebindRise" class="nav-logo-img" />
-  </a>
-  <ul class="nav-links-desktop">
-    <li><a href="#courses">Courses</a></li>
-    <li><a href="#curriculum">Curriculum</a></li>
-    <li><a href="#capstone">Capstone</a></li>
-    <li><a href="#diff">Why Us</a></li>
-    <li><a href="#who">Who Joins</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="nav-right">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <img src="assets/main_logo.png" alt="RebindRise" class="nav-logo-img" />
+    </a>
+    <ul class="nav-links-desktop">
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#curriculum">Curriculum</a></li>
+      <li><a href="#capstone">Capstone</a></li>
+      <li><a href="#diff">Why Us</a></li>
+      <li><a href="#who">Who Joins</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
