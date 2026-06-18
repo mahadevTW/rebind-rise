@@ -116,12 +116,13 @@
 
     .nav-right { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
     .nav-links-desktop {
-      display: flex; gap: 20px; list-style: none;
+      display: flex; gap: 20px; list-style: none; margin-left: auto;
     }
     .nav-links-desktop a {
       text-decoration: none; color: var(--muted);
-      font-size: 0.82rem; font-weight: 500;
+      font-size: 1.2rem; font-weight: 500;
       white-space: nowrap;
+      padding: 6px 10px;
       transition: color .2s, opacity .2s;
     }
     .nav-links-desktop a:hover { color: var(--text); }
@@ -1418,11 +1419,6 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <a href="https://wa.me/919156929220?text=Hi%2C%20I%27m%20interested%20in%20RebindRise%20bootcamp" class="btn-wa" target="_blank" onclick="gtag('event','whatsapp_click',{'button_location':'nav'})">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      WhatsApp
-    </a>
-    <a href="#cta-section" class="btn-reserve" onclick="gtag('event','cta_click',{'button_location':'nav_reserve_seat'})">Reserve Your Seat</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -1437,11 +1433,6 @@
   <a href="#who" onclick="closeMobile()">Who Should Join</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
   <div class="mobile-ctas">
-    <a href="#cta-section" class="btn-reserve" onclick="closeMobile();gtag('event','cta_click',{'button_location':'mobile_reserve_seat'})">Reserve Your Seat</a>
-    <a href="https://wa.me/919156929220?text=Hi%2C%20I%27m%20interested%20in%20RebindRise%20bootcamp" class="btn-wa" target="_blank" onclick="closeMobile();gtag('event','whatsapp_click',{'button_location':'mobile_nav'})">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Talk on WhatsApp
-    </a>
   </div>
 </div>
 </header>
@@ -1502,16 +1493,16 @@
     <div class="hero-slide">
       <div class="hero-two-col">
         <div class="hero-inner fi">
-          <div class="hero-eyebrow green">In-Person Java Full Stack Bootcamp</div>
+          <div class="hero-eyebrow">In-Person Java Full Stack Bootcamp</div>
           <h1>
             Become a Java Full Stack Developer
-            <span class="gradient-green">Powered by AI from Day One.</span>
+            <span class="gradient">Powered by AI from Day One.</span>
           </h1>
           <p class="sub">
             A comprehensive in-person program covering Java, Spring Boot, React, microservices, and AI integration — designed to take you from fundamentals to a job-ready full stack engineer with real project experience.
           </p>
           <div class="hero-ctas">
-            <a href="#contact" class="hero-cta-primary green-btn" onclick="gtag('event','cta_click',{'button_location':'hero_java_apply'})">
+            <a href="#contact" class="hero-cta-primary" onclick="gtag('event','cta_click',{'button_location':'hero_java_apply'})">
               Apply for Upcoming Cohort
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
@@ -1521,10 +1512,10 @@
             </a>
           </div>
           <div class="hero-trust">
-            <span class="green-dot">Weekend-friendly cohort</span>
-            <span class="green-dot">Pune(Offline)</span>
-            <span class="green-dot">End-to-end capstone project</span>
-            <span class="green-dot">Next batch: July 2026</span>
+            <span>Weekend-friendly cohort</span>
+            <span>Pune(Offline)</span>
+            <span>End-to-end capstone project</span>
+            <span>Next batch: July 2026</span>
           </div>
         </div>
         <div class="hero-img-col fi">
@@ -1533,10 +1524,10 @@
       </div>
       <div class="hero-slide-stats">
         <div class="hero-stats">
-          <div class="stat"><div class="stat-n"><span class="g">16</span></div><div class="stat-l">Weeks</div></div>
-          <div class="stat"><div class="stat-n"><span class="g">30</span></div><div class="stat-l">Hands-On Sessions</div></div>
-          <div class="stat"><div class="stat-n"><span class="g">1</span></div><div class="stat-l">Live Projects</div></div>
-          <div class="stat"><div class="stat-n"><span class="g">25</span></div><div class="stat-l">Max Batch Size</div></div>
+          <div class="stat"><div class="stat-n"><span>16</span></div><div class="stat-l">Weeks</div></div>
+          <div class="stat"><div class="stat-n"><span>30</span></div><div class="stat-l">Hands-On Sessions</div></div>
+          <div class="stat"><div class="stat-n"><span>1</span></div><div class="stat-l">Live Projects</div></div>
+          <div class="stat"><div class="stat-n"><span>25</span></div><div class="stat-l">Max Batch Size</div></div>
         </div>
       </div>
     </div>
@@ -1545,10 +1536,10 @@
     <div class="hero-slide">
       <div class="hero-two-col">
         <div class="hero-inner fi">
-          <div class="hero-eyebrow orange">Personal AI Career Mentorship</div>
+          <div class="hero-eyebrow">Personal AI Career Mentorship</div>
           <h1>
             Looking for a Career Switch
-            <span class="gradient-orange">or Career Upgrade?</span>
+            <span class="gradient">or Career Upgrade?</span>
           </h1>
           <p class="sub">
             Get a personalized roadmap built for you. Our AI-powered Career Guidance Platform combined with 1-on-1 Expert Mentorship helps you identify the fastest path to a better role, company, and salary.
@@ -1571,7 +1562,7 @@
             </div>
           </div>
           <div class="hero-ctas">
-            <a href="https://app.rebindrise.com" class="hero-cta-primary orange-btn" onclick="gtag('event','cta_click',{'button_location':'hero_career_roadmap'})">
+            <a href="https://app.rebindrise.com" class="hero-cta-primary" onclick="gtag('event','cta_click',{'button_location':'hero_career_roadmap'})">
               Get Your Personalized Career Roadmap
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
@@ -1581,19 +1572,19 @@
             </a>
           </div>
           <div class="hero-trust">
-            <span class="orange-dot">100% Personalized Guidance</span>
-            <span class="orange-dot">AI-Powered Career Analysis</span>
-            <span class="orange-dot">1-on-1 Expert Mentorship</span>
-            <span class="orange-dot">Industry-Aligned Roadmap</span>
+            <span>100% Personalized Guidance</span>
+            <span>AI-Powered Career Analysis</span>
+            <span>1-on-1 Expert Mentorship</span>
+            <span>Industry-Aligned Roadmap</span>
           </div>
         </div>
       </div>
       <div class="hero-slide-stats">
         <div class="hero-stats career-stats">
-          <div class="stat"><div class="stat-n"><span class="o">AI</span></div><div class="stat-l">Career Assessment</div></div>
-          <div class="stat"><div class="stat-n"><span class="o">1:1</span></div><div class="stat-l">Expert Mentorship</div></div>
-          <div class="stat"><div class="stat-n"><span class="o">100%</span></div><div class="stat-l">Personalised Roadmap</div></div>
-          <div class="stat"><div class="stat-n"><span class="o">∞</span></div><div class="stat-l">Career Support</div></div>
+          <div class="stat"><div class="stat-n"><span>AI</span></div><div class="stat-l">Career Assessment</div></div>
+          <div class="stat"><div class="stat-n"><span>1:1</span></div><div class="stat-l">Expert Mentorship</div></div>
+          <div class="stat"><div class="stat-n"><span>100%</span></div><div class="stat-l">Personalised Roadmap</div></div>
+          <div class="stat"><div class="stat-n"><span>∞</span></div><div class="stat-l">Career Support</div></div>
         </div>
       </div>
     </div>
@@ -2287,23 +2278,6 @@
   </div>
 </section>
 
-<!-- CTA -->
-<section id="cta-section">
-  <div class="cta-banner fi container">
-    <h2>The future belongs to engineers who can build with AI.</h2>
-    <p>Join RebindRise and learn how to engineer modern AI systems through hands-on implementation, practical architecture, and real-world projects.</p>
-    <div class="btns">
-      <a href="https://rzp.io/rzp/MJnDISnQ" class="cta-a" target="_blank" onclick="gtag('event','enroll_click',{'button_location':'cta_section_enroll'})">
-        Reserve Your Seat
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="https://wa.me/919156929220?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20RebindRise" class="cta-b" target="_blank" onclick="gtag('event','whatsapp_click',{'button_location':'cta_section'})">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Talk on WhatsApp
-      </a>
-    </div>
-  </div>
-</section>
 </main>
 
 <!-- FOOTER -->
