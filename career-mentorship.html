@@ -7,7 +7,7 @@
   <meta name="description" content="Get a personalized AI-powered career roadmap with 1-on-1 expert mentorship. Career switch or upgrade — we help you reach a better role, company, and salary faster." />
   <link rel="canonical" href="https://rebindrise.com/career-mentorship" />
   <link rel="icon" type="image/png" href="/assets/img.png" />
-  <link rel="apple-touch-icon" href="/assets/main_logo.png" />
+  <link rel="apple-touch-icon" href="/assets/img.png.png" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -99,6 +99,8 @@
       transition: opacity .2s, transform .15s, box-shadow .2s;
     }
     .btn-reserve:hover { opacity: .9; transform: translateY(-1px); box-shadow: 0 6px 24px rgba(79,142,247,0.45); }
+    .label { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); background: rgba(79,142,247,0.1); border: 1px solid rgba(79,142,247,0.2); border-radius: 20px; padding: 4px 14px; margin-bottom: 16px; }
+    .hl { background: linear-gradient(135deg, var(--blue), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .hamburger {
       display: none; flex-direction: column; gap: 5px; cursor: pointer;
       background: transparent; border: 1px solid rgba(0,0,0,0.1); padding: 8px; border-radius: 10px;
@@ -283,16 +285,23 @@
     footer a { color: var(--muted); text-decoration: none; }
     footer a:hover { color: var(--text); }
 
-    @media (max-width: 660px) {
+    @media (max-width: 960px) {
       .nav-links-desktop { display: none; }
-      .nav-right .btn-reserve { display: none; }
-      .hamburger { display: flex; }
+      .nav-right { display: none; }
+      .hamburger { display: flex; margin-left: auto; }
+    }
+    @media (max-width: 660px) {
       .steps-row { flex-direction: column; gap: 20px; }
       .steps-row::before { display: none; }
       .step-item { flex-direction: row; text-align: left; gap: 14px; align-items: flex-start; }
       .step-num { margin-bottom: 0; width: 44px; height: 44px; flex-shrink: 0; }
       .cta-box { padding: 32px 20px; }
       .hero-stats { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 600px) {
+      .nav-logo-img { height: 52px !important; max-width: 220px !important; }
+      .hero-ctas { flex-direction: column; align-items: stretch; gap: 10px; }
+      .hero-cta-primary, .hero-cta-wa { justify-content: center; }
     }
   </style>
 </head>
@@ -308,7 +317,7 @@
       <li><a href="./index.html">Home</a></li>
       <li><a href="./ai-engineering-course.html">AI Engineering</a></li>
       <li><a href="./java-full-stack-course.html">Java Full Stack</a></li>
-      <li><a href="/#contact">Contact</a></li>
+      <li><a href="#faq">FAQ</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -320,10 +329,7 @@
   <a href="./index.html" onclick="closeMobile()">Home</a>
   <a href="./ai-engineering-course.html" onclick="closeMobile()">AI Engineering</a>
   <a href="./java-full-stack-course.html" onclick="closeMobile()">Java Full Stack</a>
-  <a href="/#contact" onclick="closeMobile()">Contact</a>
-  <div class="mobile-ctas">
-    <a href="https://app.rebindrise.com" class="btn-reserve" style="display:flex;justify-content:center;">Get Your Roadmap →</a>
-  </div>
+  <a href="#faq" onclick="closeMobile()">FAQ</a>
 </div>
 
 <!-- HERO -->
@@ -353,6 +359,7 @@
     <div class="hero-trust">
       <span>100% Personalized Guidance</span>
       <span>AI-Powered Career Analysis</span>
+        <span>Mock Interview</span>
       <span>1-on-1 Expert Mentorship</span>
       <span>Industry-Aligned Roadmap</span>
     </div>
@@ -605,24 +612,34 @@
   </div>
 </section>
 
-<!-- CTA -->
-<section class="section-bg">
+<!-- FAQ -->
+<section id="faq" style="background:var(--bg2);border-top:1px solid var(--border);">
   <div class="container">
-    <div class="cta-box">
-      <div class="hero-eyebrow" style="margin-bottom:16px;">Get Clarity. Get a Plan. Get Results.</div>
-      <h2>Ready to Build Your <span class="gradient">Personalized Career Roadmap?</span></h2>
-      <p>Take the first step today. Our AI will map your fastest path to a better career — backed by expert mentorship every step of the way.</p>
-      <div class="cta-row">
-        <a href="https://app.rebindrise.com" class="hero-cta-primary" onclick="gtag('event','cta_click',{'button_location':'cm_cta_bottom'})">
-          Get Your Personalized Career Roadmap
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="https://wa.me/919156929220?text=Hi%2C%20I%27m%20interested%20in%20the%20Personalized%20Career%20Mentorship%20program" target="_blank" class="hero-cta-wa" onclick="gtag('event','whatsapp_click',{'button_location':'cm_cta_bottom'})">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Talk on WhatsApp
-        </a>
-      </div>
-      <p class="cta-contact">📞 +91 9156929220 &nbsp;·&nbsp; ✉️ hello@rebind.in &nbsp;·&nbsp; 📍 Office No. 604, 6th Floor, Suratwala Mark Plazzo, Hinjawadi, Pune – 411057</p>
+    <div class="tc" style="margin-bottom:36px;">
+      <div class="label">FAQ</div>
+      <h2>Career Mentorship <span class="hl">FAQs</span></h2>
+    </div>
+    <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:14px;">
+      <details style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;cursor:pointer;">
+        <summary style="font-weight:700;font-size:0.95rem;list-style:none;">Who is this career mentorship for?</summary>
+        <p style="margin-top:12px;font-size:0.875rem;color:var(--muted);line-height:1.7;">This is for software engineers and developers who feel stuck — unsure which direction to grow, how to break into a better company, or how to command a higher salary. Whether you are a fresher trying to land your first role or an experienced developer targeting a senior position, we build a personalised roadmap for you.</p>
+      </details>
+      <details style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;cursor:pointer;">
+        <summary style="font-weight:700;font-size:0.95rem;list-style:none;">What does the AI-powered career roadmap include?</summary>
+        <p style="margin-top:12px;font-size:0.875rem;color:var(--muted);line-height:1.7;">The roadmap covers your target role, skill gaps to close, a week-by-week action plan, resume and LinkedIn improvements, and specific companies to target. It is built from your current profile and your career goals — not a generic template.</p>
+      </details>
+      <details style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;cursor:pointer;">
+        <summary style="font-weight:700;font-size:0.95rem;list-style:none;">How is this different from generic career coaching?</summary>
+        <p style="margin-top:12px;font-size:0.875rem;color:var(--muted);line-height:1.7;">Generic coaching gives advice. We give you a concrete plan tied to your specific background, skills, and goals — combined with 1-on-1 mentorship from engineers who have hired and been hired at top tech companies. Every session is action-oriented, not just motivational.</p>
+      </details>
+      <details style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;cursor:pointer;">
+        <summary style="font-weight:700;font-size:0.95rem;list-style:none;">How many mentorship sessions are included?</summary>
+        <p style="margin-top:12px;font-size:0.875rem;color:var(--muted);line-height:1.7;">Session count depends on the plan you choose. Contact us on WhatsApp for the latest plan details and pricing — we keep batch sizes small so every mentee gets focused attention.</p>
+      </details>
+      <details style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;cursor:pointer;">
+        <summary style="font-weight:700;font-size:0.95rem;list-style:none;">Can I combine career mentorship with the AI Engineering or Java Full Stack course?</summary>
+        <p style="margin-top:12px;font-size:0.875rem;color:var(--muted);line-height:1.7;">Yes — many of our students pair a course with mentorship to both skill up and navigate their next career move simultaneously. Reach out on WhatsApp to discuss a combined package.</p>
+      </details>
     </div>
   </div>
 </section>
