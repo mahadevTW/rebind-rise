@@ -134,10 +134,10 @@
         .drop-arrow { font-size: 0.6rem; transition: transform .2s; line-height: 1; }
         .nav-dropdown:hover .drop-arrow { transform: rotate(180deg); }
         .drop-menu {
-          display: none; position: absolute; top: calc(100% + 10px); left: 50%;
+          display: none; position: absolute; top: 100%; left: 50%;
           transform: translateX(-50%); min-width: 248px;
           background: #fff; border: 1px solid rgba(0,0,0,0.1);
-          border-radius: 12px; padding: 8px;
+          border-radius: 12px; padding: 8px; padding-top: 18px;
           box-shadow: 0 8px 32px rgba(0,0,0,0.12);
           z-index: 1100;
         }
@@ -1491,8 +1491,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <a href="./career-mentorship.html">Career Mentorship<span class="drop-sub">1-on-1 guidance &amp; roadmap</span></a>
                   </div>
                 </li>
-                <li><a href="#curriculum">Curriculum</a></li>
-                <li><a href="#capstone">Capstone</a></li>
                 <li><a href="#diff">Why Us</a></li>
                 <li><a href="#who">Who Joins</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -1514,8 +1512,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="./career-mentorship.html" onclick="closeMobile()">Career Mentorship</a>
           </div>
         </div>
-        <a href="#curriculum" onclick="closeMobile()">Curriculum</a>
-        <a href="#capstone" onclick="closeMobile()">Capstone</a>
         <a href="#diff" onclick="closeMobile()">Why Us</a>
         <a href="#who" onclick="closeMobile()">Who Should Join</a>
         <a href="#contact" onclick="closeMobile()">Contact</a>
@@ -1749,74 +1745,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-    <!-- ABOUT / PILLARS -->
-    <section id="about">
-        <div class="about-intro fi container">
-            <div>
-                <div class="section-label">Philosophy</div>
-                <h2 class="section-h">AI is changing software engineering.</h2>
-                <p class="section-p max-680">
-                    The next generation of engineers will not just write software — they will orchestrate intelligent systems. RebindRise is designed to help software engineers transition into modern AI engineering through deep hands-on learning and real application building.
-                </p>
-            </div>
-            <div class="about-intro-img">
-                <img src="assets/tiered_ai.jpg" alt="Navigating the overwhelming world of AI tools" loading="lazy" />
-            </div>
-        </div>
-        <div class="about-grid container">
-            <div class="pillar-card p1 fi">
-                <div class="pillar-icon">⚡</div>
-                <h3>Hands-On First</h3>
-                <p>Every session focuses on implementation, experimentation, debugging, and building practical systems — not theory-heavy lectures. You code from minute one.</p>
-            </div>
-            <div class="pillar-card p2 fi">
-                <div class="pillar-icon">🔧</div>
-                <h3>Built for Engineers</h3>
-                <p>Designed specifically for developers with industry experience who want to move into AI engineering and agentic applications. No hand-holding — real engineering depth.</p>
-            </div>
-            <div class="pillar-card p3 fi">
-                <div class="pillar-icon">🚀</div>
-                <h3>Production Thinking</h3>
-                <p>Learn architecture, context handling, retrieval systems, agent workflows, deployment, and practical AI engineering patterns used in real products.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHAT IS AI ENGINEERING -->
-    <section id="what-is-ai-engineering" style="background:var(--bg2);border-top:1px solid var(--border);">
-        <div class="tc fi container" style="margin-bottom:48px;">
-            <div class="section-label">AI Engineering Explained</div>
-            <h2 class="section-h">What is <span class="hl">AI Engineering?</span></h2>
-            <p class="section-p max-680 mx-auto">AI Engineering is the discipline of designing, building, and deploying production-ready AI-powered applications and intelligent systems — not just using AI tools, but engineering with them.</p>
-        </div>
-        <div class="fi container" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:48px;">
-            <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;">
-                <div style="font-size:1.6rem;margin-bottom:12px;">🧠</div>
-                <h3 style="font-size:1rem;font-weight:700;margin-bottom:10px;">RAG Systems</h3>
-                <p style="font-size:0.875rem;color:var(--muted);line-height:1.7;">Retrieval-Augmented Generation (RAG) connects LLMs to your own data using vector databases and semantic search — enabling context-aware AI that actually knows your domain.</p>
-            </div>
-            <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;">
-                <div style="font-size:1.6rem;margin-bottom:12px;">🔧</div>
-                <h3 style="font-size:1rem;font-weight:700;margin-bottom:10px;">Tool Calling & AI Agents</h3>
-                <p style="font-size:0.875rem;color:var(--muted);line-height:1.7;">Tool calling lets AI models invoke functions, APIs, and external services autonomously. AI agents combine planning, memory, and tool execution to complete complex multi-step tasks.</p>
-            </div>
-            <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;">
-                <div style="font-size:1.6rem;margin-bottom:12px;">⚙️</div>
-                <h3 style="font-size:1rem;font-weight:700;margin-bottom:10px;">LLM Integration</h3>
-                <p style="font-size:0.875rem;color:var(--muted);line-height:1.7;">AI Engineers integrate large language models like GPT, Claude, and Gemini into applications using APIs, prompt engineering, streaming responses, and structured output handling.</p>
-            </div>
-            <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;">
-                <div style="font-size:1.6rem;margin-bottom:12px;">🚀</div>
-                <h3 style="font-size:1rem;font-weight:700;margin-bottom:10px;">Production AI Deployment</h3>
-                <p style="font-size:0.875rem;color:var(--muted);line-height:1.7;">AI Engineering goes beyond prototypes — it means deploying scalable, observable, and reliable AI systems that run in production with proper evaluation, monitoring, and safety guardrails.</p>
-            </div>
-        </div>
-        <div class="fi container" style="max-width:760px;margin:0 auto;background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);padding:32px;">
-            <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:12px;">AI Engineer vs AI User — What's the difference?</h3>
-            <p style="font-size:0.875rem;color:var(--muted);line-height:1.8;">An <strong style="color:var(--text);">AI User</strong> leverages tools like ChatGPT and Copilot to boost their existing workflow. An <strong style="color:var(--text);">AI Engineer</strong> builds those tools — designing the retrieval pipelines, agent architectures, and deployment systems that power them. RebindRise trains you to be the engineer, not just the user.</p>
-        </div>
-    </section>
-
     <!-- INSTRUCTOR -->
     <section id="instructor" style="background:var(--bg2);border-top:1px solid var(--border);padding:64px 5%;">
         <div class="tc fi container" style="margin-bottom:40px;">
@@ -1929,193 +1857,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-    <!-- CURRICULUM -->
-    <section id="curriculum">
-        <div class="tc fi container">
-            <div class="section-label">Agentic AI Curriculum</div>
-            <h2 class="section-h">10 weeks. <span class="hl">Every week ships something new.</span></h2>
-            <p class="section-p max-680 mx-auto">Saturday + Sunday · 4–5 hours/day · One evolving capstone from week 1 to week 10.</p>
-        </div>
-        <div class="weeks-grid fi container">
-            <div class="week-card">
-                <div class="week-num">Week 01–02</div>
-                <div class="week-title">AI Foundations &amp; Prompt Engineering</div>
-                <div class="week-topics">
-                    <span class="week-topic">LLM internals &amp; how GPT works</span>
-                    <span class="week-topic">First API call → terminal chatbot</span>
-                    <span class="week-topic">Tokens, context windows, cost</span>
-                    <span class="week-topic">Prompt engineering fundamentals</span>
-                    <span class="week-topic">Structured outputs &amp; Pydantic</span>
-                </div>
-                <span class="week-tag wt-blue">Foundations</span>
-            </div>
-            <div class="week-card">
-                <div class="week-num">Week 03</div>
-                <div class="week-title">Context Engineering &amp; Embeddings</div>
-                <div class="week-topics">
-                    <span class="week-topic">Context windows &amp; prompt packing</span>
-                    <span class="week-topic">Sliding window memory</span>
-                    <span class="week-topic">What embeddings are</span>
-                    <span class="week-topic">Semantic search vs keyword search</span>
-                    <span class="week-topic">Build: "Ask my notes"</span>
-                </div>
-                <span class="week-tag wt-blue">Memory</span>
-            </div>
-            <div class="week-card">
-                <div class="week-num">Week 04</div>
-                <div class="week-title">Vector Databases &amp; RAG</div>
-                <div class="week-topics">
-                    <span class="week-topic">ChromaDB setup &amp; queries</span>
-                    <span class="week-topic">Dense retrieval &amp; metadata filtering</span>
-                    <span class="week-topic">RAG architecture end-to-end</span>
-                    <span class="week-topic">PDF chatbot with citations</span>
-                    <span class="week-topic">Multi-document querying</span>
-                </div>
-                <span class="week-tag wt-purple">RAG</span>
-            </div>
-            <div class="week-card">
-                <div class="week-num">Week 05</div>
-                <div class="week-title">Advanced RAG &amp; Tool Calling</div>
-                <div class="week-topics">
-                    <span class="week-topic">Query rewriting &amp; hybrid search</span>
-                    <span class="week-topic">Context compression</span>
-                    <span class="week-topic">Build tools: calculator, file reader</span>
-                    <span class="week-topic">Function execution loop</span>
-                    <span class="week-topic">AI as orchestrator</span>
-                </div>
-                <span class="week-tag wt-purple">Tools</span>
-            </div>
-            <div class="week-card">
-                <div class="week-num">Week 06</div>
-                <div class="week-title">AI Agents</div>
-                <div class="week-topics">
-                    <span class="week-topic">Agent lifecycle &amp; reasoning loops</span>
-                    <span class="week-topic">Planning, reflection &amp; retry</span>
-                    <span class="week-topic">Agent memory (short &amp; long term)</span>
-                    <span class="week-topic">Task decomposition</span>
-                    <span class="week-topic">Build: research agent</span>
-                </div>
-                <span class="week-tag wt-cyan">Agents</span>
-            </div>
-            <div class="week-card">
-                <div class="week-num">Week 07</div>
-                <div class="week-title">Multi-Agent Systems &amp; MCP</div>
-                <div class="week-topics">
-                    <span class="week-topic">Supervisor-worker pattern</span>
-                    <span class="week-topic">Researcher + summarizer agents</span>
-                    <span class="week-topic">What MCP is &amp; why it matters</span>
-                    <span class="week-topic">Setup MCP server</span>
-                    <span class="week-topic">AI filesystem assistant</span>
-                </div>
-                <span class="week-tag wt-cyan">Multi-Agent</span>
-            </div>
-            <div class="week-card">
-                <div class="week-num">Week 08</div>
-                <div class="week-title">Production Engineering</div>
-                <div class="week-topics">
-                    <span class="week-topic">Latency &amp; cost optimization</span>
-                    <span class="week-topic">Streaming APIs &amp; rate limiting</span>
-                    <span class="week-topic">Prompt injection &amp; guardrails</span>
-                    <span class="week-topic">Input sanitization &amp; validation</span>
-                    <span class="week-topic">Security &amp; safety patterns</span>
-                </div>
-                <span class="week-tag wt-orange">Production</span>
-            </div>
-            <div class="week-card">
-                <div class="week-num">Week 09</div>
-                <div class="week-title">Evals &amp; Deployment</div>
-                <div class="week-topics">
-                    <span class="week-topic">Lightweight eval suite</span>
-                    <span class="week-topic">Prompt regression testing</span>
-                    <span class="week-topic">FastAPI deployment</span>
-                    <span class="week-topic">Deploy to Railway / Render</span>
-                    <span class="week-topic">Secrets &amp; CI/CD basics</span>
-                </div>
-                <span class="week-tag wt-green">Deploy</span>
-            </div>
-            <div class="week-card">
-                <div class="week-num">Week 10</div>
-                <div class="week-title">Final Capstone &amp; Demo Day</div>
-                <div class="week-topics">
-                    <span class="week-topic">End-to-end system integration</span>
-                    <span class="week-topic">Architecture review</span>
-                    <span class="week-topic">Final live demos</span>
-                    <span class="week-topic">Peer reviews</span>
-                    <span class="week-topic">Career roadmap discussion</span>
-                </div>
-                <span class="week-tag wt-green">Demo Day</span>
-            </div>
-            <div class="week-card stack-card">
-                <div class="week-num">Tech Stack</div>
-                <div class="week-title">What You'll Use</div>
-                <div class="week-topics">
-                    <span class="week-topic">Python 3.12 + FastAPI</span>
-                    <span class="week-topic">OpenAI SDK (GPT-4.1/4o-mini)</span>
-                    <span class="week-topic">ChromaDB vector database</span>
-                    <span class="week-topic">Streamlit / React UI</span>
-                    <span class="week-topic">Railway / Render deploy</span>
-                </div>
-                <span class="week-tag wt-blue">Stack</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- CAPSTONE -->
-    <section id="capstone">
-        <div class="tc fi container">
-            <div class="section-label">Final Capstone Project</div>
-            <h2 class="section-h">"AI Engineering Assistant" — <span class="hl">your deployed product.</span></h2>
-            <p class="section-p max-680 mx-auto">By the end of 10 weeks, you'll have built and deployed a complete AI assistant capable of chat, retrieval, autonomous task execution, and multi-agent coordination.</p>
-        </div>
-        <div class="capstone-grid fi container">
-            <div class="cap-group cap-core">
-                <div class="cap-group-title">Core AI</div>
-                <div class="cap-items">
-                    <div class="cap-item">Chat interface</div>
-                    <div class="cap-item">Streaming AI responses</div>
-                    <div class="cap-item">System prompts</div>
-                    <div class="cap-item">Context handling</div>
-                    <div class="cap-item">Conversation memory</div>
-                    <div class="cap-item">Structured JSON outputs</div>
-                    <div class="cap-item">Tool calling</div>
-                </div>
-            </div>
-            <div class="cap-group cap-know">
-                <div class="cap-group-title">Knowledge</div>
-                <div class="cap-items">
-                    <div class="cap-item">PDF ingestion</div>
-                    <div class="cap-item">Semantic search</div>
-                    <div class="cap-item">Vector database</div>
-                    <div class="cap-item">RAG pipeline</div>
-                    <div class="cap-item">Multi-document querying</div>
-                    <div class="cap-item">Citation-aware answers</div>
-                </div>
-            </div>
-            <div class="cap-group cap-agent">
-                <div class="cap-group-title">Agentic</div>
-                <div class="cap-items">
-                    <div class="cap-item">Task planning</div>
-                    <div class="cap-item">Tool-using agent</div>
-                    <div class="cap-item">Multi-agent workflows</div>
-                    <div class="cap-item">Research agent</div>
-                    <div class="cap-item">Summarization agent</div>
-                    <div class="cap-item">MCP tool integrations</div>
-                </div>
-            </div>
-            <div class="cap-group cap-eng">
-                <div class="cap-group-title">Engineering</div>
-                <div class="cap-items">
-                    <div class="cap-item">Logging &amp; token tracking</div>
-                    <div class="cap-item">Basic evaluations</div>
-                    <div class="cap-item">Prompt versioning</div>
-                    <div class="cap-item">Error handling</div>
-                    <div class="cap-item">Deployed publicly</div>
-                    <div class="cap-item">Portfolio-ready codebase</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- WHO SHOULD JOIN -->
     <section id="who">
         <div class="tc fi container">
@@ -2145,45 +1886,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div>
                 <div class="prereq-title">Prerequisites</div>
                 <div class="prereq-text">Basic programming knowledge required · Python familiarity helpful but not mandatory · No prior AI or ML experience needed · Bring a laptop and the curiosity to build.</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CAREER OPPORTUNITIES -->
-    <section id="career" style="background:var(--bg2);border-top:1px solid var(--border);">
-        <div class="tc fi container" style="margin-bottom:48px;">
-            <div class="section-label">Career Opportunities</div>
-            <h2 class="section-h">AI Engineer <span class="hl">Career Roadmap.</span></h2>
-            <p class="section-p max-680 mx-auto">The demand for AI Engineers is growing at an unprecedented rate. Companies across every industry are hiring engineers who can build production AI systems — not just prompt ChatGPT.</p>
-        </div>
-        <div class="fi container" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-bottom:48px;">
-            <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;">
-                <div style="font-size:1.5rem;font-weight:900;color:var(--blue);margin-bottom:6px;">AI Engineer</div>
-                <div style="font-size:0.8rem;color:var(--muted);">Build LLM-powered apps, RAG systems & AI agents</div>
-            </div>
-            <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;">
-                <div style="font-size:1.5rem;font-weight:900;color:var(--purple);margin-bottom:6px;">ML Engineer</div>
-                <div style="font-size:0.8rem;color:var(--muted);">Deploy and scale machine learning systems in production</div>
-            </div>
-            <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;">
-                <div style="font-size:1.5rem;font-weight:900;color:var(--cyan);margin-bottom:6px;">Full Stack + AI</div>
-                <div style="font-size:0.8rem;color:var(--muted);">Build complete AI-powered web products end-to-end</div>
-            </div>
-            <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;">
-                <div style="font-size:1.5rem;font-weight:900;color:var(--green);margin-bottom:6px;">AI Product Engineer</div>
-                <div style="font-size:0.8rem;color:var(--muted);">Own the architecture and delivery of AI SaaS products</div>
-            </div>
-        </div>
-        <div class="fi container" style="max-width:760px;margin:0 auto;">
-            <div style="background:linear-gradient(135deg,rgba(79,142,247,0.08),rgba(167,139,250,0.08));border:1px solid var(--border2);border-radius:var(--radius);padding:32px;">
-                <h3 style="font-size:1rem;font-weight:700;margin-bottom:16px;">Placement Assistance</h3>
-                <p style="font-size:0.875rem;color:var(--muted);line-height:1.8;margin-bottom:16px;">RebindRise provides career support to help you transition into AI engineering roles. You'll graduate with a production-deployed capstone project, a structured portfolio, and guidance on presenting your AI engineering skills to employers.</p>
-                <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
-                    <li style="font-size:0.875rem;color:var(--muted);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--green);font-weight:700;flex-shrink:0;">✓</span> Capstone project deployed and live — your portfolio proof</li>
-                    <li style="font-size:0.875rem;color:var(--muted);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--green);font-weight:700;flex-shrink:0;">✓</span> Resume and LinkedIn profile review for AI engineering roles</li>
-                    <li style="font-size:0.875rem;color:var(--muted);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--green);font-weight:700;flex-shrink:0;">✓</span> Interview preparation for AI engineer and full stack positions</li>
-                    <li style="font-size:0.875rem;color:var(--muted);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--green);font-weight:700;flex-shrink:0;">✓</span> Access to RebindRise alumni network and community</li>
-                </ul>
             </div>
         </div>
     </section>
@@ -2414,20 +2116,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <ul>
                 <li><a href="/ai-engineering-course.html">Agentic AI Bootcamp</a></li>
                 <li><a href="/java-full-stack-course.html">Java Full Stack</a></li>
-                <li><a href="#curriculum">10-Week Curriculum</a></li>
-                <li><a href="#capstone">Capstone Project</a></li>
             </ul>
         </div>
         <div class="footer-col">
             <h3>Navigate</h3>
             <ul>
+                <li><a href="#courses">Our Courses</a></li>
                 <li><a href="#who">Who Should Join</a></li>
-                <li><a href="#career">Career Opportunities</a></li>
-                <li><a href="#what-is-ai-engineering">What is AI Engineering?</a></li>
                 <li><a href="#diff">Why RebindRise</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact Us</a></li>
-                <li><a href="#cta-section">Reserve a Seat</a></li>
             </ul>
         </div>
         <div class="footer-col">
