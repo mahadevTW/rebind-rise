@@ -8,13 +8,14 @@
   <link rel="canonical" href="https://rebindrise.com/java-full-stack-course" />
   <link rel="icon" type="image/png" href="/assets/img.png" />
 
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-KJV48SXN');</script>
-  <!-- End Google Tag Manager -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HYCKNSWBY6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HYCKNSWBY6');
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -144,6 +145,40 @@
     .cta-box { background: linear-gradient(135deg, rgba(79,142,247,0.07), rgba(167,139,250,0.07)); border: 1px solid var(--border2); border-radius: var(--radius); padding: 40px; text-align: center; }
     .roadmap { display: flex; flex-direction: column; gap: 0; max-width: 700px; margin: 0 auto; }
 
+    /* ── COURSES DROPDOWN ── */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex !important; align-items: center; gap: 4px; }
+    .drop-arrow { font-size: 0.6rem; transition: transform .2s; line-height: 1; }
+    .nav-dropdown:hover .drop-arrow { transform: rotate(180deg); }
+    .drop-menu {
+      display: none; position: absolute; top: calc(100% + 10px); left: 50%;
+      transform: translateX(-50%); min-width: 248px;
+      background: #fff; border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 12px; padding: 8px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      z-index: 1100;
+    }
+    .nav-dropdown:hover .drop-menu { display: block; }
+    .drop-menu a {
+      display: flex !important; flex-direction: column; gap: 2px;
+      padding: 10px 14px !important; border-radius: 8px;
+      color: #222 !important; font-size: 0.875rem !important;
+      font-weight: 600 !important; text-decoration: none;
+      transition: background .15s; white-space: normal !important;
+    }
+    .drop-menu a:hover { background: #f0f4ff !important; color: #4f8ef7 !important; }
+    .drop-sub { font-size: 0.72rem; color: #888; font-weight: 400; }
+    .mobile-courses-hdr {
+      padding: 14px 16px; border-radius: 10px; color: var(--muted);
+      font-weight: 500; font-size: 1rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      border: 1px solid transparent; transition: all .2s; user-select: none;
+    }
+    .mobile-courses-hdr:hover { color: var(--text); border-color: var(--border2); background: var(--card); }
+    .mobile-courses-body { display: none; flex-direction: column; gap: 4px; padding-left: 12px; }
+    .mobile-courses-body.open { display: flex; }
+    .mobile-courses-body a { font-size: 0.9rem; }
+
     /* ── CONTACT FORM ── */
     .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; align-items: start; max-width: 1000px; margin: 0 auto; }
     .contact-form-box { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 32px; }
@@ -202,10 +237,6 @@
   </style>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJV48SXN"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 <nav>
   <div class="nav-inner">
@@ -422,7 +453,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="contact-form-box">
-        <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:22px;">Send an Enquiry</h3>
+        <h2 style="font-size:1.05rem;font-weight:700;margin-bottom:22px;">Send an Enquiry</h2>
         <form id="contactForm" onsubmit="submitForm(event)">
           <div class="form-row">
             <div class="form-group">
