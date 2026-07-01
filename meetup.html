@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WTF is RAG? (And Why Every AI App Needs It) | Pune AI Builders Meetup</title>
+    <meta name="description" content="Join Pune AI Builders for 'WTF is RAG?' on 11th July. See highlights from our last meetup, 'Build Your First AI Native Application', and register your seat instantly." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://rebindrise.com/meetup.html" />
+    <link rel="icon" type="image/png" href="/assets/img.png" />
+    <link rel="apple-touch-icon" href="/assets/main_logo.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="RebindRise" />
+    <meta property="og:title" content="WTF is RAG? | Pune AI Builders Meetup" />
+    <meta property="og:description" content="Join Pune AI Builders for 'WTF is RAG?' on 11th July. See highlights from our last meetup and register your seat instantly." />
+    <meta property="og:url" content="https://rebindrise.com/meetup.html" />
+    <meta property="og:image" content="https://rebindrise.com/assets/og-preview.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="WTF is RAG? | Pune AI Builders Meetup" />
+    <meta name="twitter:description" content="Join Pune AI Builders for 'WTF is RAG?' on 11th July. See highlights from our last meetup and register your seat instantly." />
+    <meta name="twitter:image" content="https://rebindrise.com/assets/og-preview.png" />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "WTF is RAG? | Pune AI Builders Meetup",
+      "description": "A Pune AI Builders online meetup demystifying Retrieval-Augmented Generation — embeddings, vector search, and retrieval pipelines, with live demos and open discussion.",
+      "startDate": "2026-07-07T11:00:00+05:30",
+      "endDate": "2026-07-07T16:00:00+05:30",
+      "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "VirtualLocation",
+        "url": "https://rebindrise.com/meetup.html"
+      },
+      "image": ["https://rebindrise.com/assets/meetup-1.jpg"],
+      "organizer": {
+        "@type": "Organization",
+        "name": "Pune AI Builders",
+        "url": "https://rebindrise.com"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://rzp.io/rzp/KRB8Bao",
+        "price": "499",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-07-01"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://rebindrise.com"},
+          {"@type": "ListItem", "position": 2, "name": "Meetup", "item": "https://rebindrise.com/meetup.html"}
+        ]
+      }
+    }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-54CSSXVL');</script>
+    <!-- End Google Tag Manager -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+          --bg: #07080f; --bg2: #0d0f1a; --bg3: #111420;
+          --card: #12151f; --card2: #181c2a;
+          --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.12);
+          --blue: #4f8ef7; --purple: #a78bfa; --cyan: #22d3ee; --green: #34d399; --orange: #fb923c;
+          --text: #f1f5f9; --muted: #8892a4; --muted2: #64748b;
+          --radius: 14px; --container: 1148px;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+        a, button { -webkit-tap-highlight-color: transparent; }
+        .container { width: min(100%, var(--container)); margin-left: auto; margin-right: auto; padding: 0 5%; }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: #2a2f45; border-radius: 3px; }
+
+        /* NAV */
+        nav {
+          position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+          height: 70px;
+          display: flex; align-items: center; justify-content: center;
+          padding: 0 max(4%, calc((100vw - var(--container)) / 2));
+          background: #ffffff;
+          border-bottom: 1px solid rgba(0,0,0,0.08);
+          box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+          transition: box-shadow .3s;
+        }
+        .nav-inner { display: flex; align-items: center; gap: 20px; width: 100%; max-width: var(--container); }
+        nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.12); }
+        .nav-logo { display: flex; align-items: center; text-decoration: none; }
+        .nav-logo-img { height: 68px; width: auto; max-width: 280px; display: block; object-fit: contain; }
+        .nav-right { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
+        .nav-links-desktop { display: flex; gap: 20px; list-style: none; margin-left: auto; align-items: center; }
+        .nav-links-desktop a { text-decoration: none; color: #000; font-size: 1.2rem; font-weight: 500; white-space: nowrap; padding: 6px 10px; transition: color .2s; }
+        .nav-links-desktop a:hover { color: #000; }
+
+        /* ── COURSES DROPDOWN ── */
+        .nav-dropdown { position: relative; }
+        .nav-dropdown > a { display: inline-flex !important; align-items: center; gap: 4px; }
+        .drop-arrow { font-size: 0.6rem; transition: transform .2s; line-height: 1; }
+        .nav-dropdown:hover .drop-arrow { transform: rotate(180deg); }
+        .drop-menu {
+          display: none; position: absolute; top: 100%; left: 50%;
+          transform: translateX(-50%); min-width: 248px;
+          background: #fff; border: 1px solid rgba(0,0,0,0.1);
+          border-radius: 12px; padding: 8px; padding-top: 18px;
+          box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+          z-index: 1100;
+        }
+        .nav-dropdown:hover .drop-menu { display: block; }
+        .drop-menu a {
+          display: flex !important; flex-direction: column; gap: 2px;
+          padding: 10px 14px !important; border-radius: 8px;
+          color: #222 !important; font-size: 0.875rem !important;
+          font-weight: 600 !important; text-decoration: none;
+          transition: background .15s; white-space: normal !important;
+        }
+        .drop-menu a:hover { background: #f0f4ff !important; color: #4f8ef7 !important; }
+        .drop-sub { font-size: 0.72rem; color: #888; font-weight: 400; }
+
+        .hamburger {
+          display: none; flex-direction: column; gap: 5px;
+          cursor: pointer; background: rgba(255,255,255,0.03); border: 1px solid transparent; padding: 8px;
+          border-radius: 10px;
+        }
+        .hamburger span {
+          display: block; width: 22px; height: 2px;
+          background: var(--muted); border-radius: 2px; transition: .3s;
+        }
+
+        /* ── MOBILE MENU ── */
+        .mobile-menu {
+          display: none; position: fixed;
+          top: 82px; left: 0; right: 0; bottom: 0;
+          background: var(--bg2);
+          padding: 28px 5%;
+          flex-direction: column; gap: 8px;
+          z-index: 998;
+          border-top: 1px solid var(--border);
+        }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a {
+          padding: 14px 16px; border-radius: 10px;
+          color: var(--muted); text-decoration: none;
+          font-weight: 500; font-size: 1rem;
+          border: 1px solid transparent;
+          transition: all .2s;
+        }
+        .mobile-menu a:hover { color: var(--text); border-color: var(--border2); background: var(--card); }
+        .mobile-courses-hdr {
+          padding: 14px 16px; border-radius: 10px; color: var(--muted);
+          font-weight: 500; font-size: 1rem; cursor: pointer;
+          display: flex; align-items: center; gap: 6px;
+          border: 1px solid transparent; transition: all .2s; user-select: none;
+        }
+        .mobile-courses-hdr:hover { color: var(--text); border-color: var(--border2); background: var(--card); }
+        .mobile-courses-body { display: none; flex-direction: column; gap: 4px; padding-left: 12px; }
+        .mobile-courses-body.open { display: flex; }
+        .mobile-courses-body a { font-size: 0.9rem; }
+        @media (max-width: 960px) { .nav-links-desktop { display: none; } .hamburger { display: flex; } }
+        @media (max-width: 600px) { .nav-logo-img { height: 52px !important; max-width: 220px !important; } }
+
+        main { padding-top: 70px; }
+
+        .eyebrow {
+          display: inline-flex; align-items: center; gap: 8px;
+          background: rgba(7,8,15,0.75); border: 1px solid rgba(79,142,247,0.5);
+          color: #6ba3ff; font-size: 0.78rem; font-weight: 700;
+          padding: 7px 14px; border-radius: 999px; margin-bottom: 20px;
+          backdrop-filter: blur(4px);
+          text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+        }
+        .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); }
+
+        /* HERO */
+        #hero {
+          padding: 72px 0 56px; text-align: center;
+          position: relative;
+          min-height: 640px;
+          display: flex; align-items: center; justify-content: center;
+          background:
+            radial-gradient(600px 300px at 50% -10%, rgba(79,142,247,0.3), transparent 70%),
+            linear-gradient(180deg, rgba(7,8,15,0.35) 0%, rgba(7,8,15,0.55) 55%, var(--bg) 100%),
+            url('/assets/meetup-2.jpg') center 75% / cover no-repeat;
+          border-bottom: 1px solid var(--border);
+        }
+        #hero > .container { width: 100%; }
+        #hero h1 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 900; line-height: 1.15; margin-bottom: 16px; text-shadow: 0 2px 16px rgba(0,0,0,0.6); }
+        #hero h1 span { background: linear-gradient(135deg, var(--blue), var(--purple)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        #hero p.sub { color: var(--text); font-size: 1.05rem; max-width: 620px; margin: 0 auto 28px; line-height: 1.7; text-shadow: 0 2px 10px rgba(0,0,0,0.55); }
+
+        .meta-row {
+          display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 32px;
+        }
+        .meta-pill {
+          display: flex; align-items: center; gap: 8px;
+          background: var(--card); border: 1px solid var(--border2);
+          padding: 10px 16px; border-radius: 10px; font-size: 0.85rem; font-weight: 600;
+        }
+        .meta-pill svg { color: var(--cyan); flex-shrink: 0; }
+
+        .hero-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+        .btn-book {
+          display: inline-flex; align-items: center; gap: 8px;
+          background: linear-gradient(135deg, var(--blue), var(--purple));
+          color: white; text-decoration: none;
+          padding: 15px 28px; border-radius: 12px;
+          font-weight: 800; font-size: 1rem;
+          box-shadow: 0 0 32px rgba(79,142,247,0.35);
+          transition: opacity .2s, transform .2s;
+        }
+        .btn-book:hover { opacity: .92; transform: translateY(-2px); }
+        .btn-meetupcom {
+          display: inline-flex; align-items: center; gap: 8px;
+          background: rgba(255,255,255,0.06); color: var(--text); text-decoration: none;
+          padding: 15px 24px; border-radius: 12px; font-weight: 700; font-size: 0.95rem;
+          border: 1px solid var(--border2); transition: background .2s, transform .2s;
+        }
+        .btn-meetupcom:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+        .price-note { margin-top: 14px; color: var(--muted2); font-size: 0.8rem; }
+
+        /* GALLERY */
+        #gallery { padding: 72px 0; border-bottom: 1px solid var(--border); }
+        .section-hdr { text-align: center; max-width: 640px; margin: 0 auto 40px; }
+        .section-hdr h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 900; margin-bottom: 12px; }
+        .section-hdr p { color: var(--muted); font-size: 0.98rem; line-height: 1.7; }
+
+        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .gallery-item {
+          position: relative; border-radius: var(--radius); overflow: hidden;
+          border: 1px solid var(--border2); aspect-ratio: 4/3;
+          background: var(--card);
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+        .gallery-item:hover img { transform: scale(1.06); }
+        .gallery-cap {
+          position: absolute; left: 0; right: 0; bottom: 0;
+          background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+          padding: 26px 14px 12px; font-size: 0.8rem; font-weight: 600; color: #fff;
+        }
+
+        /* AGENDA */
+        #agenda { padding: 72px 0; border-bottom: 1px solid var(--border); background: var(--bg2); }
+        .agenda-list { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+        .agenda-row {
+          display: flex; gap: 16px; align-items: flex-start;
+          background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px;
+        }
+        .agenda-time { color: var(--cyan); font-weight: 700; font-size: 0.85rem; white-space: nowrap; min-width: 92px; }
+        .agenda-desc { color: var(--muted); font-size: 0.92rem; line-height: 1.6; }
+        .agenda-desc strong { color: var(--text); display: block; margin-bottom: 2px; font-size: 0.95rem; }
+
+        /* CTA BAND */
+        #cta-band { padding: 64px 0; text-align: center; }
+        #cta-band h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 900; margin-bottom: 12px; }
+        #cta-band p { color: var(--muted); margin-bottom: 28px; }
+
+        @media (max-width: 800px) {
+          .gallery-grid { grid-template-columns: 1fr; }
+        }
+
+        /* FOOTER (shared) */
+        footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 52px 5% 32px; text-align: left; }
+        .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 40px; }
+        .footer-brand p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; margin-top: 12px; max-width: 260px; }
+        .footer-contact-items { margin-top: 16px; display: flex; flex-direction: column; gap: 9px; }
+        .footer-contact-row { display: flex; align-items: flex-start; gap: 8px; font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+        .footer-contact-row a { color: var(--muted); text-decoration: none; }
+        .footer-contact-row a:hover { color: var(--text); }
+        .footer-col h3 { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted); margin-bottom: 16px; }
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .footer-col ul li a { text-decoration: none; font-size: 0.875rem; color: var(--muted); transition: color .2s; }
+        .footer-col ul li a:hover { color: var(--text); }
+        .footer-bottom { border-top: 1px solid var(--border); padding-top: 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 0.8rem; color: var(--muted); }
+        .footer-socials { display: flex; gap: 8px; }
+        .footer-socials a { width: 36px; height: 36px; border-radius: 8px; background: var(--card); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; transition: border-color .2s, color .2s; }
+        .footer-socials a:hover { border-color: var(--border2); color: var(--text); }
+        .footer-map { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); margin-top: 16px; }
+        @media (max-width: 960px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 600px) { .footer-top { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; text-align: center; } }
+
+        /* STICKY BUTTONS */
+        .sticky-btns { position: fixed; bottom: 24px; right: 24px; display: flex; flex-direction: column; gap: 10px; z-index: 9999; }
+        .sticky-wa, .sticky-call { display: flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 50px; font-weight: 700; font-size: 0.82rem; text-decoration: none; box-shadow: 0 4px 20px rgba(0,0,0,0.35); transition: transform .2s, box-shadow .2s; white-space: nowrap; }
+        .sticky-wa { background: #25d366; color: white; }
+        .sticky-call { background: linear-gradient(135deg, var(--blue), var(--purple)); color: white; }
+        .sticky-wa:hover, .sticky-call:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.4); }
+        @media (max-width: 600px) { .sticky-btns { bottom: 14px; right: 14px; } .sticky-wa span, .sticky-call span { display: none; } .sticky-wa, .sticky-call { padding: 12px; border-radius: 50%; } }
+    </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54CSSXVL"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="./index.html" class="nav-logo">
+            <img src="/assets/main_logo.png" alt="RebindRise" class="nav-logo-img" />
+        </a>
+        <ul class="nav-links-desktop">
+            <li><a href="./index.html">Home</a></li>
+            <li class="nav-dropdown">
+              <a href="#courses">Courses <span class="drop-arrow">▾</span></a>
+              <div class="drop-menu">
+                <a href="./ai-engineering-course.html">AI Engineering Bootcamp<span class="drop-sub">RAG, AI Agents, LLM Integration</span></a>
+                <a href="./java-full-stack-course.html">Java Full Stack<span class="drop-sub">Spring Boot, REST APIs, Databases</span></a>
+                <a href="./career-mentorship.html">Career Mentorship<span class="drop-sub">1-on-1 guidance &amp; roadmap</span></a>
+              </div>
+            </li>
+            <li><a href="./index.html#diff">Why Us</a></li>
+            <li><a href="./index.html#who">Who Joins</a></li>
+            <li><a href="./index.html#contact">Contact</a></li>
+        </ul>
+        <div class="nav-right"></div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+    <div>
+      <div class="mobile-courses-hdr" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.mc').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▾'">Courses <span class="mc">▾</span></div>
+      <div class="mobile-courses-body">
+        <a href="./ai-engineering-course.html" onclick="closeMobile()">AI Engineering Bootcamp</a>
+        <a href="./java-full-stack-course.html" onclick="closeMobile()">Java Full Stack</a>
+        <a href="./career-mentorship.html" onclick="closeMobile()">Career Mentorship</a>
+      </div>
+    </div>
+    <a href="./index.html" onclick="closeMobile()">Home</a>
+    <a href="./index.html#diff" onclick="closeMobile()">Why Us</a>
+    <a href="./index.html#who" onclick="closeMobile()">Who Should Join</a>
+    <a href="./index.html#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<main>
+    <!-- HERO -->
+    <section id="hero">
+        <div class="container">
+            <div class="eyebrow"><span class="dot"></span> Pune AI Builders &middot; Live Online Meetup</div>
+            <h1>WTF is <span>RAG?</span><br />(And Why Every AI App Needs It)</h1>
+            <p class="sub">A free-flowing session where builders demystify Retrieval-Augmented Generation, demo real AI projects, and connect with the Pune AI Builders community &mdash; live on Zoom, hosted via Meetup.com.</p>
+
+            <div class="meta-row">
+                <div class="meta-pill">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Tue, 11 July 2026
+                </div>
+                <div class="meta-pill">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    11:00 AM &ndash; 4:00 PM IST
+                </div>
+                <div class="meta-pill">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 01.01 2.22 2 2 0 012 .04h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 14.92z"/></svg>
+                    Online &middot; Zoom link on registration
+                </div>
+                <div class="meta-pill">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                    &#8377;499 &middot; Early Bird
+                </div>
+            </div>
+
+            <div class="hero-ctas">
+                <a href="https://rzp.io/rzp/KRB8Bao" class="btn-book" target="_blank" rel="noopener">
+                    Book My Seat &mdash; &#8377;499 &rarr;
+                </a>
+                <a href="https://www.meetup.com/pune-ai-builders/" class="btn-meetupcom" target="_blank" rel="noopener">
+                    View Event on Meetup.com
+                </a>
+            </div>
+            <p class="price-note">Secure checkout via Razorpay &middot; Confirmation &amp; Zoom link emailed instantly</p>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-hdr">
+                <h2>From Our Last Meetup</h2>
+                <p>Last week, Pune AI Builders came together for <strong>"Build Your First AI Native Application"</strong> &mdash; here's a look at the community that shows up every time.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="/assets/meetup-1.jpg" alt="Attendees at the Pune AI Builders 'Build Your First AI Native Application' meetup" loading="lazy" />
+                    <div class="gallery-cap">Build Your First AI Native Application</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/assets/meetup-2.jpg" alt="Community discussion at the Pune AI Builders meetup" loading="lazy" />
+                    <div class="gallery-cap">Community discussion</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/assets/meetup-3.jpg" alt="Networking at the Pune AI Builders meetup" loading="lazy" />
+                    <div class="gallery-cap">Networking &amp; Q&amp;A</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AGENDA -->
+    <section id="agenda">
+        <div class="container">
+            <div class="section-hdr">
+                <h2>What to Expect &mdash; WTF is RAG?</h2>
+                <p>A packed five hours breaking down Retrieval-Augmented Generation &mdash; come with questions, leave with connections.</p>
+            </div>
+            <div class="agenda-list">
+                <div class="agenda-row">
+                    <div class="agenda-time">11:00 AM</div>
+                    <div class="agenda-desc"><strong>Welcome &amp; Introductions</strong>Quick round of who's building what.</div>
+                </div>
+                <div class="agenda-row">
+                    <div class="agenda-time">11:15 AM</div>
+                    <div class="agenda-desc"><strong>WTF is RAG? &mdash; The Talk</strong>Embeddings, vector search, and retrieval pipelines explained &amp; demoed live.</div>
+                </div>
+                <div class="agenda-row">
+                    <div class="agenda-time">1:30 PM</div>
+                    <div class="agenda-desc"><strong>Open Discussion</strong>RAG in production, common pitfalls, and what's trending in AI engineering.</div>
+                </div>
+                <div class="agenda-row">
+                    <div class="agenda-time">3:30 PM</div>
+                    <div class="agenda-desc"><strong>Networking &amp; Wrap-up</strong>Breakout rooms to connect 1:1 before we close.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <section id="cta-band">
+        <div class="container">
+            <p>Register now to save your spot for "WTF is RAG?" &mdash; the next Pune AI Builders online meetup.</p>
+            <div class="hero-ctas">
+                <a href="https://rzp.io/rzp/KRB8Bao" class="btn-book" target="_blank" rel="noopener">Book My Seat &mdash; &#8377;499 &rarr;</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+  <div class="footer-top container">
+    <div class="footer-brand">
+      <a href="./index.html"><img src="/assets/main_logo.png" style="height:52px;width:auto;display:block;" alt="RebindRise" /></a>
+      <p>Pune AI Builders is RebindRise's community meetup for engineers building real-world AI applications together.</p>
+      <div class="footer-contact-items">
+        <div class="footer-contact-row"><span style="display:flex;align-items:center;flex-shrink:0;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.22 2 2 0 012 .04h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg></span><a href="tel:+919156929220">+91 9156929220</a></div>
+        <div class="footer-contact-row"><span style="display:flex;align-items:center;flex-shrink:0;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><a href="mailto:hello@rebind.in">hello@rebind.in</a></div>
+        <div class="footer-contact-row"><span style="display:flex;align-items:center;flex-shrink:0;margin-top:2px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span>Office No. 604, 6th Floor, Suratwala Mark Plazzo, Hinjawadi, Pune – 411057</span></div>
+      </div>
+      <div class="footer-map">
+        <iframe src="https://maps.google.com/maps?q=Suratwala+Mark+Plazzo+Hinjawadi+Pune+Maharashtra&output=embed" width="100%" height="130" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="RebindRise Location Map"></iframe>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3>Programs</h3>
+      <ul>
+        <li><a href="./ai-engineering-course.html">AI Engineering Bootcamp</a></li>
+        <li><a href="./java-full-stack-course.html">Java Full Stack</a></li>
+        <li><a href="./career-mentorship.html">Career Mentorship</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Navigate</h3>
+      <ul>
+        <li><a href="#hero">Register Now</a></li>
+        <li><a href="#gallery">Past Meetups</a></li>
+        <li><a href="./index.html">Home</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Connect</h3>
+      <ul>
+        <li><a href="https://wa.me/919156929220" target="_blank">WhatsApp Us</a></li>
+        <li><a href="mailto:hello@rebind.in">Email Us</a></li>
+        <li><a href="tel:+919156929220">Call Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <div>
+      <p>© 2026 RebindRise. All rights reserved.</p>
+      <p style="font-size:0.75rem;color:#64748b;margin-top:4px;">RebindRise is a product of Mutex Software Innovations Private Limited.</p>
+    </div>
+    <div class="footer-socials">
+      <a href="https://www.facebook.com/rebindrise" target="_blank" title="Facebook">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/rebind_rise" target="_blank" title="Instagram">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/company/nextrebind" target="_blank" title="LinkedIn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky Floating Buttons -->
+<div class="sticky-btns">
+  <a href="https://wa.me/919156929220?text=Hi%2C%20I%27m%20interested%20in%20the%20Pune%20AI%20Builders%20Meetup" class="sticky-wa" target="_blank" title="WhatsApp">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+  <a href="tel:+919156929220" class="sticky-call" title="Call Us">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.22 2 2 0 012 .04h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+    <span>Call Us</span>
+  </a>
+</div>
+
+<script>
+    // Navbar shadow on scroll
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    // Hamburger / mobile menu
+    const hb = document.getElementById('hamburger');
+    const mm = document.getElementById('mobileMenu');
+    hb.addEventListener('click', () => mm.classList.toggle('open'));
+    function closeMobile() { mm.classList.remove('open'); }
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !mm.contains(e.target)) closeMobile();
+    });
+</script>
+
+</body>
+</html>
