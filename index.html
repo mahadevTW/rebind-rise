@@ -465,7 +465,7 @@
 
         /* ── TRUST / STATS BAND (below hero) ── */
         .trust-band { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 40px 0; }
-        .trust-grid { display: grid; grid-template-columns: repeat(4, minmax(140px, 1fr)); gap: 20px; }
+        .trust-grid { display: grid; grid-template-columns: repeat(3, minmax(140px, 1fr)); gap: 20px; }
         .trust-grid .stat { padding: 16px 10px; }
         .trust-grid .stat-n { font-size: 1.9rem; }
         .trust-stars { color: #fbbf24; font-size: 0.95rem; letter-spacing: 2px; line-height: 1; margin-top: 2px; }
@@ -563,6 +563,14 @@
         .tc { text-align: center; }
         .mx-auto { margin-left: auto; margin-right: auto; }
         .max-560 { max-width: 560px; }
+
+        /* ── TESTIMONIALS GALLERY ── */
+        .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .testi-item { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border2); aspect-ratio: 4/3; background: var(--card); }
+        .testi-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+        .testi-item:hover img { transform: scale(1.06); }
+        .testi-cap { position: absolute; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.75), transparent); padding: 26px 14px 12px; font-size: 0.8rem; font-weight: 600; color: #fff; }
+        @media (max-width: 800px) { .testi-grid { grid-template-columns: 1fr; } }
         .max-680 { max-width: 680px; }
 
         /* ── WHAT YOU BUILD ── */
@@ -1533,6 +1541,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </li>
                 <li><a href="#diff">Why Us</a></li>
                 <li><a href="#who">Who Joins</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="/workshops/voiceagent-15th-august.html">Meetup</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -1555,6 +1564,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <a href="#diff" onclick="closeMobile()">Why Us</a>
         <a href="#who" onclick="closeMobile()">Who Should Join</a>
+        <a href="#testimonials" onclick="closeMobile()">Testimonials</a>
         <a href="/workshops/voiceagent-15th-august.html" onclick="closeMobile()">Meetup</a>
         <a href="#contact" onclick="closeMobile()">Contact</a>
         <div class="mobile-ctas">
@@ -1794,10 +1804,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="stat-n"><span class="count-num" data-target="4.9" data-decimals="1">0</span><span style="font-size:1rem;color:var(--muted);">/5</span></div>
                     <div class="trust-stars">★★★★★</div>
                     <div class="stat-l">Google Rating</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-n"><span class="count-num" data-target="150" data-suffix="+">0</span></div>
-                    <div class="stat-l">Google Reviews from Candidates</div>
                 </div>
                 <div class="stat">
                     <div class="stat-n"><span class="g count-num" data-target="2">0</span></div>
@@ -2041,6 +2047,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="yes-item">Discuss real-world limitations honestly</div>
                     <div class="yes-item">Let students debug — not just watch demos</div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" style="background:var(--bg2);border-top:1px solid var(--border);">
+        <div class="tc fi container">
+            <div class="section-label">Testimonials</div>
+            <h2 class="section-h">Real Cohorts. <span class="hl">Real Sessions.</span></h2>
+            <p class="section-p max-560 mx-auto">A look inside our live, in-person cohort sessions at Hinjawadi, Pune — full rooms, hands-on laptops, no passive lectures.</p>
+        </div>
+        <div class="testi-grid fi container">
+            <div class="testi-item">
+                <img src="assets/testimonial-1.jpg" alt="RebindRise AI Engineering cohort in session at Hinjawadi, Pune" loading="lazy" />
+                <div class="testi-cap">Live cohort session</div>
+            </div>
+            <div class="testi-item">
+                <img src="assets/testimonial-2.jpg" alt="Students attending a RebindRise AI Engineering cohort session" loading="lazy" />
+                <div class="testi-cap">Hands-on classroom learning</div>
+            </div>
+            <div class="testi-item">
+                <img src="assets/testimonial-3.jpg" alt="Full cohort room during a RebindRise AI Engineering session" loading="lazy" />
+                <div class="testi-cap">Full house, every cohort</div>
             </div>
         </div>
     </section>
