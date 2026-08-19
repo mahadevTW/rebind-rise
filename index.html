@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Artificial Intelligence Course in Pune | Full Stack Development Course | Information Technology Training Institute</title>
-    <meta name="description" content="Looking for AI &amp; IT courses near Wakad and Pimpri? Join Rebind Rise for Generative AI, AI Engineering Bootcamp, and Full Stack Development training with industry-focused learning and expert mentorship." />
+    <title>AI Engineering Course in Pune | RebindRise</title>
+    <meta name="description" content="Looking for AI &amp; IT courses near Wakad and Pimpri? Join Rebind Rise for Generative AI, AI Engineering Cohort, and Full Stack Development training with industry-focused learning and expert mentorship." />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href="https://rebindrise.com/" />
     <link rel="icon" type="image/png" href="/assets/img.png" />
     <link rel="apple-touch-icon" href="/assets/main_logo.png" />
     <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#07080f" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="RebindRise" />
-    <meta property="og:title" content="AI Engineering Bootcamp in Pune | RebindRise" />
-    <meta property="og:description" content="Build production AI systems at RebindRise bootcamp in Pune. Learn RAG, AI agents, tool calling & Java full stack development with expert mentorship." />
+    <meta property="og:title" content="AI Engineering Cohort in Pune | RebindRise" />
+    <meta property="og:description" content="Build production AI systems at RebindRise cohort in Pune. Learn RAG, AI agents, tool calling & Java full stack development with expert mentorship." />
     <meta property="og:url" content="https://rebindrise.com/" />
     <meta property="og:image" content="https://rebindrise.com/assets/og-preview.png" />
     <meta property="og:image:width" content="1200" />
@@ -24,8 +25,8 @@
 
     <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="AI Engineering Bootcamp in Pune | RebindRise" />
-    <meta name="twitter:description" content="Build production AI systems at RebindRise bootcamp in Pune. Learn RAG, AI agents, tool calling & Java full stack development with expert mentorship." />
+    <meta name="twitter:title" content="AI Engineering Cohort in Pune | RebindRise" />
+    <meta name="twitter:description" content="Build production AI systems at RebindRise cohort in Pune. Learn RAG, AI agents, tool calling & Java full stack development with expert mentorship." />
     <meta name="twitter:image" content="https://rebindrise.com/assets/og-preview.png" />
 
     <!-- Google Tag Manager -->
@@ -462,6 +463,14 @@
         .stat-n span.o { background: linear-gradient(90deg, var(--orange), #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .stat-l { font-size: 0.75rem; color: var(--muted2); margin-top: 3px; letter-spacing: .3px; }
 
+        /* ── TRUST / STATS BAND (below hero) ── */
+        .trust-band { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 40px 0; }
+        .trust-grid { display: grid; grid-template-columns: repeat(3, minmax(140px, 1fr)); gap: 20px; }
+        .trust-grid .stat { padding: 16px 10px; }
+        .trust-grid .stat-n { font-size: 1.9rem; }
+        .trust-stars { color: #fbbf24; font-size: 0.95rem; letter-spacing: 2px; line-height: 1; margin-top: 2px; }
+        @media (max-width: 700px) { .trust-grid { grid-template-columns: repeat(2, 1fr); } }
+
         /* Career card grid for slide 3 */
         .career-pillars {
           display: grid; grid-template-columns: repeat(3,1fr); gap: 10px;
@@ -554,6 +563,14 @@
         .tc { text-align: center; }
         .mx-auto { margin-left: auto; margin-right: auto; }
         .max-560 { max-width: 560px; }
+
+        /* ── TESTIMONIALS GALLERY ── */
+        .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .testi-item { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border2); aspect-ratio: 4/3; background: var(--card); }
+        .testi-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+        .testi-item:hover img { transform: scale(1.06); }
+        .testi-cap { position: absolute; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.75), transparent); padding: 26px 14px 12px; font-size: 0.8rem; font-weight: 600; color: #fff; }
+        @media (max-width: 800px) { .testi-grid { grid-template-columns: 1fr; } }
         .max-680 { max-width: 680px; }
 
         /* ── WHAT YOU BUILD ── */
@@ -1265,6 +1282,16 @@
         .sticky-call { background: linear-gradient(135deg, var(--blue), var(--purple)); color: white; }
         .sticky-wa:hover, .sticky-call:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.4); }
         @media (max-width: 600px) { .sticky-btns { bottom: 14px; right: 14px; } .sticky-wa span, .sticky-call span { display: none; } .sticky-wa, .sticky-call { padding: 12px; border-radius: 50%; } }
+        .sticky-top {
+          display: flex; align-items: center; justify-content: center;
+          width: 42px; height: 42px; border-radius: 50%;
+          background: var(--card); border: 1px solid var(--border2); color: var(--text);
+          box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+          opacity: 0; visibility: hidden; transform: translateY(8px);
+          transition: opacity .25s, transform .25s, visibility .25s, border-color .2s;
+        }
+        .sticky-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+        .sticky-top:hover { border-color: rgba(79,142,247,0.5); }
 
 
         /* ── ABOUT INTRO LAYOUT ── */
@@ -1342,13 +1369,20 @@
                         "addressCountry": "IN"
                     },
                     "openingHours": "Sa-Su 09:00-18:00",
-                    "priceRange": "₹₹"
+                    "priceRange": "₹₹",
+                    "aggregateRating": {
+                        "@type": "AggregateRating",
+                        "ratingValue": "4.9",
+                        "bestRating": "5",
+                        "worstRating": "1",
+                        "reviewCount": "150"
+                    }
                 },
                 {
                     "@type": "Course",
                     "@id": "https://rebindrise.com/#course-ai",
-                    "name": "Agentic AI Engineering Bootcamp",
-                    "description": "A premium 10-week hands-on bootcamp for software engineers to build real-world AI applications, RAG systems, AI agents, tool-calling pipelines, and deploy production-ready AI products.",
+                    "name": "Agentic AI Engineering Cohort",
+                    "description": "A premium 10-week hands-on cohort for software engineers to build real-world AI applications, RAG systems, AI agents, tool-calling pipelines, and deploy production-ready AI products.",
                     "url": "https://rebindrise.com",
                     "provider": {
                         "@type": "Organization",
@@ -1358,6 +1392,13 @@
                     "educationalLevel": "Intermediate",
                     "teaches": ["AI Engineering", "RAG Systems", "AI Agents", "Tool Calling", "LLM Integration", "Production AI Deployment"],
                     "inLanguage": "en",
+                    "aggregateRating": {
+                        "@type": "AggregateRating",
+                        "ratingValue": "4.9",
+                        "bestRating": "5",
+                        "worstRating": "1",
+                        "reviewCount": "150"
+                    },
                     "hasCourseInstance": {
                         "@type": "CourseInstance",
                         "courseMode": "onsite",
@@ -1372,7 +1413,7 @@
                                 "addressCountry": "IN"
                             }
                         },
-                        "startDate": "2026-06-15",
+                        "startDate": "2026-08-15",
                         "courseSchedule": {
                             "@type": "Schedule",
                             "byDay": ["Saturday", "Sunday"],
@@ -1393,7 +1434,14 @@
                     "courseMode": ["onsite", "online"],
                     "educationalLevel": "Intermediate",
                     "teaches": ["Java", "Spring Boot", "REST APIs", "MySQL", "PostgreSQL", "JPA", "Hibernate", "Full Stack Development"],
-                    "inLanguage": "en"
+                    "inLanguage": "en",
+                    "aggregateRating": {
+                        "@type": "AggregateRating",
+                        "ratingValue": "4.9",
+                        "bestRating": "5",
+                        "worstRating": "1",
+                        "reviewCount": "150"
+                    }
                 },
                 {
                     "@type": "Person",
@@ -1427,7 +1475,7 @@
                 },
                 {
                     "@type": "Question",
-                    "name": "What are the prerequisites for the AI Engineering bootcamp?",
+                    "name": "What are the prerequisites for the AI Engineering cohort?",
                     "acceptedAnswer": {
                         "@type": "Answer",
                         "text": "Basic programming knowledge is required. Python familiarity is helpful but not mandatory — we bring you up to speed. No prior AI or ML experience needed. You need a laptop and a willingness to code from session one."
@@ -1435,7 +1483,7 @@
                 },
                 {
                     "@type": "Question",
-                    "name": "Is the RebindRise bootcamp online or in-person?",
+                    "name": "Is the RebindRise cohort online or in-person?",
                     "acceptedAnswer": {
                         "@type": "Answer",
                         "text": "Primarily in-person at our Hinjawadi, Pune office. Online access is provided for students who cannot attend a session in person, so you never fall behind."
@@ -1459,7 +1507,7 @@
                 },
                 {
                     "@type": "Question",
-                    "name": "Can I take this bootcamp while working full-time?",
+                    "name": "Can I take this cohort while working full-time?",
                     "acceptedAnswer": {
                         "@type": "Answer",
                         "text": "Yes — the program runs Saturday and Sunday only (4–5 hours each day). It is specifically designed for working engineers who want to upskill without quitting their job."
@@ -1486,13 +1534,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <li class="nav-dropdown">
                   <a href="#courses">Courses <span class="drop-arrow">▾</span></a>
                   <div class="drop-menu">
-                    <a href="./ai-engineering-course.html">AI Engineering Bootcamp<span class="drop-sub">RAG, AI Agents, LLM Integration</span></a>
+                    <a href="./ai-engineering-course.html">AI Engineering Cohort<span class="drop-sub">RAG, AI Agents, LLM Integration</span></a>
                     <a href="./java-full-stack-course.html">Java Full Stack<span class="drop-sub">Spring Boot, REST APIs, Databases</span></a>
                     <a href="./career-mentorship.html">Career Mentorship<span class="drop-sub">1-on-1 guidance &amp; roadmap</span></a>
                   </div>
                 </li>
                 <li><a href="#diff">Why Us</a></li>
                 <li><a href="#who">Who Joins</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="/workshops/voiceagent-15th-august.html">Meetup</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -1508,13 +1557,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div>
           <div class="mobile-courses-hdr" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.mc').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▾'">Courses <span class="mc">▾</span></div>
           <div class="mobile-courses-body">
-            <a href="./ai-engineering-course.html" onclick="closeMobile()">AI Engineering Bootcamp</a>
+            <a href="./ai-engineering-course.html" onclick="closeMobile()">AI Engineering Cohort</a>
             <a href="./java-full-stack-course.html" onclick="closeMobile()">Java Full Stack</a>
             <a href="./career-mentorship.html" onclick="closeMobile()">Career Mentorship</a>
           </div>
         </div>
         <a href="#diff" onclick="closeMobile()">Why Us</a>
         <a href="#who" onclick="closeMobile()">Who Should Join</a>
+        <a href="#testimonials" onclick="closeMobile()">Testimonials</a>
         <a href="/workshops/voiceagent-15th-august.html" onclick="closeMobile()">Meetup</a>
         <a href="#contact" onclick="closeMobile()">Contact</a>
         <div class="mobile-ctas">
@@ -1531,21 +1581,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Slides track -->
         <div class="hero-slider" id="heroSlider">
 
-            <!-- SLIDE 1: AI Engineering Bootcamp -->
+            <!-- SLIDE 1: AI Engineering Cohort -->
             <div class="hero-slide">
                 <div class="hero-two-col">
                     <div class="hero-inner fi">
-                        <div class="hero-eyebrow">In-Person Agentic AI Engineering Bootcamp</div>
-                        <h1>Agentic AI Engineering Masterclass Bootcamp in Pune</h1>
+                        <div class="hero-eyebrow">In-Person Agentic AI Engineering Cohort</div>
+                        <h1>Agentic AI Engineering Masterclass Cohort in Pune</h1>
                         <p class="sub">
-                            A premium hands-on bootcamp for software engineers who want to build real-world AI applications, RAG systems, AI agents, and deploy production-ready AI products using modern AI engineering practices.
+                            A premium hands-on cohort for software engineers who want to build real-world AI applications, RAG systems, AI agents, and deploy production-ready AI products using modern AI engineering practices.
                         </p>
                         <div class="hero-ctas">
                             <a href="#contact" class="hero-cta-primary">
                                 Apply for Upcoming Cohort
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             </a>
-                            <a href="https://wa.me/919156929220?text=Hi%2C%20I%27m%20interested%20in%20the%20AI%20Engineering%20Bootcamp" class="hero-cta-wa" target="_blank">
+                            <a href="https://wa.me/919156929220?text=Hi%2C%20I%27m%20interested%20in%20the%20AI%20Engineering%20Cohort" class="hero-cta-wa" target="_blank">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                                 Talk on WhatsApp
                             </a>
@@ -1556,9 +1606,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                         <div class="hero-trust">
                             <span>Weekend-friendly cohort</span>
-                            <span>Pune(Offline)</span>
+                            <span>Pune (Offline + Online)</span>
                             <span>Portfolio-grade capstone</span>
-                            <span>Next batch: July 2026</span>
+                            <span>Next batch: 15 August 2026</span>
                         </div>
                     </div>
                     <div class="hero-img-col fi">
@@ -1579,7 +1629,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="hero-slide">
                 <div class="hero-two-col">
                     <div class="hero-inner fi">
-                        <div class="hero-eyebrow">In-Person Java Full Stack Bootcamp</div>
+                        <div class="hero-eyebrow">In-Person Java Full Stack Cohort</div>
                         <h1>
                             Become a Java Full Stack Developer
                             <span class="gradient">Powered by AI from Day One.</span>
@@ -1603,9 +1653,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                         <div class="hero-trust">
                             <span>Weekend-friendly cohort</span>
-                            <span>Pune(Offline)</span>
+                            <span>Pune (Offline + Online)</span>
                             <span>End-to-end capstone project</span>
-                            <span>Next batch: July 2026</span>
+                            <span>Next batch: 1 September 2026</span>
                         </div>
                     </div>
                     <div class="hero-img-col fi">
@@ -1742,6 +1792,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     </section>
 
+    <!-- TRUST / STATS BAND -->
+    <section class="trust-band">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="stat">
+                    <div class="stat-n"><span class="count-num" data-target="500" data-suffix="+">0</span></div>
+                    <div class="stat-l">Students &amp; Candidates Mentored</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-n"><span class="count-num" data-target="4.9" data-decimals="1">0</span><span style="font-size:1rem;color:var(--muted);">/5</span></div>
+                    <div class="trust-stars">★★★★★</div>
+                    <div class="stat-l">Google Rating</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-n"><span class="g count-num" data-target="2">0</span></div>
+                    <div class="stat-l">In-Demand Career Tracks</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- WHAT YOU BUILD -->
     <section id="build">
         <div class="fi container">
@@ -1825,7 +1896,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <span class="course-badge badge-ai">Flagship Program</span>
                         <span class="course-badge badge-new">New Cohort · Starts 15 June 2026</span>
                     </div>
-                    <h3>Agentic AI Engineering Masterclass Bootcamp</h3>
+                    <h3>Agentic AI Engineering Masterclass Cohort</h3>
                     <p>Go from LLM basics to building and deploying production-style AI applications, RAG systems, and multi-agent workflows — all in 10 weekends.</p>
                 </div>
                 <div class="course-body">
@@ -1849,7 +1920,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             Enroll Now
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </a>
-                        <a href="https://wa.me/919156929220?text=Hi%2C%20I%27m%20interested%20in%20the%20Agentic%20AI%20Bootcamp" class="cta-wa" target="_blank">
+                        <a href="https://wa.me/919156929220?text=Hi%2C%20I%27m%20interested%20in%20the%20Agentic%20AI%20Cohort" class="cta-wa" target="_blank">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                             WhatsApp
                         </a>
@@ -1935,7 +2006,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section id="diff">
         <div class="tc fi container">
             <div class="section-label">Why RebindRise</div>
-            <h2 class="section-h">Not a classroom. <span class="hl">A bootcamp.</span></h2>
+            <h2 class="section-h">Not a classroom. <span class="hl">A cohort.</span></h2>
             <p class="section-p max-560 mx-auto">Most AI learning is either too theoretical or too shallow. This program is different.</p>
         </div>
         <div class="diff-grid fi container">
@@ -1976,6 +2047,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="yes-item">Discuss real-world limitations honestly</div>
                     <div class="yes-item">Let students debug — not just watch demos</div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" style="background:var(--bg2);border-top:1px solid var(--border);">
+        <div class="tc fi container">
+            <div class="section-label">Testimonials</div>
+            <h2 class="section-h">Real Cohorts. <span class="hl">Real Sessions.</span></h2>
+            <p class="section-p max-560 mx-auto">A look inside our live, in-person cohort sessions at Hinjawadi, Pune — full rooms, hands-on laptops, no passive lectures.</p>
+        </div>
+        <div class="testi-grid fi container">
+            <div class="testi-item">
+                <img src="assets/testimonial-1.jpg" alt="RebindRise AI Engineering cohort in session at Hinjawadi, Pune" loading="lazy" />
+                <div class="testi-cap">Live cohort session</div>
+            </div>
+            <div class="testi-item">
+                <img src="assets/testimonial-2.jpg" alt="Students attending a RebindRise AI Engineering cohort session" loading="lazy" />
+                <div class="testi-cap">Hands-on classroom learning</div>
+            </div>
+            <div class="testi-item">
+                <img src="assets/testimonial-3.jpg" alt="Full cohort room during a RebindRise AI Engineering session" loading="lazy" />
+                <div class="testi-cap">Full house, every cohort</div>
             </div>
         </div>
     </section>
@@ -2057,7 +2151,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <label for="course">Course Interested In</label>
                         <select id="course" name="course">
                             <option value="">— Select a program —</option>
-                            <option>Agentic AI: AI Engineering Bootcamp</option>
+                            <option>Agentic AI: AI Engineering Cohort</option>
                             <option>Java Full Stack Developer</option>
                             <option>Not sure — need guidance</option>
                         </select>
@@ -2110,8 +2204,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </details>
 
             <details style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;cursor:pointer;">
-                <summary style="font-weight:700;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">What is included in the AI Engineering Bootcamp? <span style="color:var(--blue);font-size:1.2rem;flex-shrink:0;">+</span></summary>
-                <p style="margin-top:12px;font-size:0.875rem;color:var(--muted);line-height:1.7;">Our AI Engineering Bootcamp covers AI fundamentals, Generative AI, Large Language Models (LLMs), prompt engineering, model deployment, and project-based learning. Students gain practical experience through hands-on assignments and industry-relevant projects.</p>
+                <summary style="font-weight:700;font-size:0.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center;">What is included in the AI Engineering Cohort? <span style="color:var(--blue);font-size:1.2rem;flex-shrink:0;">+</span></summary>
+                <p style="margin-top:12px;font-size:0.875rem;color:var(--muted);line-height:1.7;">Our AI Engineering Cohort covers AI fundamentals, Generative AI, Large Language Models (LLMs), prompt engineering, model deployment, and project-based learning. Students gain practical experience through hands-on assignments and industry-relevant projects.</p>
             </details>
 
             <details style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;cursor:pointer;">
@@ -2133,7 +2227,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="footer-top container">
         <div class="footer-brand">
             <a href="/index.html"><img src="/assets/main_logo.png" style="height:48px;width:auto;display:block;margin-bottom:16px;" alt="RebindRise" /></a>
-            <p>A premium in-person bootcamp for software engineers who want to build real-world AI applications and ship production-ready AI systems.</p>
+            <p>A premium in-person cohort for software engineers who want to build real-world AI applications and ship production-ready AI systems.</p>
             <div class="footer-contact">
                 <div class="footer-contact-row">
                     <span class="footer-contact-icon" style="display:flex;align-items:center;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.22 2 2 0 012 .04h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg></span>
@@ -2155,7 +2249,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="footer-col">
             <h3>Programs</h3>
             <ul>
-                <li><a href="/ai-engineering-course.html">Agentic AI Bootcamp</a></li>
+                <li><a href="/ai-engineering-course.html">Agentic AI Cohort</a></li>
                 <li><a href="/java-full-stack-course.html">Java Full Stack</a></li>
             </ul>
         </div>
@@ -2208,6 +2302,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.22 2 2 0 012 .04h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
     <span>Call Us</span>
   </a>
+  <button class="sticky-top" id="backToTop" title="Back to top" aria-label="Back to top">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
 </div>
 
 <script>
@@ -2273,6 +2370,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.08 });
     document.querySelectorAll('.fi').forEach(el => io.observe(el));
+
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+      window.addEventListener('scroll', () => {
+        backToTop.classList.toggle('show', window.scrollY > 700);
+      });
+      backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+
+    // Count-up animation for trust stats
+    const countEls = document.querySelectorAll('.count-num');
+    if (countEls.length) {
+      const countIO = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          countIO.unobserve(el);
+          const target = parseFloat(el.dataset.target);
+          const decimals = parseInt(el.dataset.decimals || '0', 10);
+          const suffix = el.dataset.suffix || '';
+          const duration = 1200;
+          const start = performance.now();
+          const step = (now) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = (target * eased).toFixed(decimals) + suffix;
+            if (progress < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        });
+      }, { threshold: 0.4 });
+      countEls.forEach(el => countIO.observe(el));
+    }
 
     // Referral + UTM tracking — read params from URL and persist for the session
     const _params = new URLSearchParams(window.location.search);
