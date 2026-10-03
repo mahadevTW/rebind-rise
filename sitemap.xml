@@ -25,10 +25,16 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rebindrise.com/workshops/voiceagent-26th-september.html</loc>
-    <lastmod>2026-08-10</lastmod>
+    <loc>https://rebindrise.com/workshops/jev-10th-october.html</loc>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rebindrise.com/workshops/voiceagent-26th-september.html</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rebindrise.com/workshops/mcpserver-11th-july.html</loc>

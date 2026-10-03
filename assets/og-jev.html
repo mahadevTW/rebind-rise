@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1200" />
+  <title>OG Thumbnail – WTF is Jev?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+      background: #0d0f1a;
+      color: #f1f5f9;
+      position: relative;
+    }
+
+    /* top gradient bar */
+    .top-bar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #4f8ef7, #a78bfa);
+    }
+
+    /* radial glow top-left */
+    .glow {
+      position: absolute;
+      top: -180px; left: -120px;
+      width: 700px; height: 500px;
+      background: radial-gradient(ellipse at center, rgba(79,142,247,0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .content {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      padding: 56px 72px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .top {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(7,8,15,0.75);
+      border: 1px solid rgba(79,142,247,0.5);
+      color: #6ba3ff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 8px 16px;
+      border-radius: 999px;
+      width: fit-content;
+      text-transform: uppercase;
+    }
+    .badge-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #34d399;
+      box-shadow: 0 0 8px #34d399;
+      flex-shrink: 0;
+    }
+
+    .title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .title-line1 {
+      font-size: 66px;
+      font-weight: 900;
+      line-height: 1.1;
+      color: #f1f5f9;
+      letter-spacing: -0.02em;
+    }
+    .title-line1 span {
+      background: linear-gradient(135deg, #4f8ef7, #a78bfa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .title-line2 {
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.25;
+      color: #cbd5e1;
+      letter-spacing: -0.01em;
+      max-width: 920px;
+    }
+
+    .tech-tags {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #8892a4;
+      margin-top: 4px;
+    }
+    .tech-dot { color: #4f8ef7; font-size: 12px; }
+
+    .divider {
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin: 0;
+    }
+
+    .stats {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+    }
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 180px;
+    }
+    .stat-value {
+      font-size: 30px;
+      font-weight: 800;
+      color: #4f8ef7;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #8892a4;
+    }
+
+    .branding {
+      position: absolute;
+      bottom: 48px;
+      right: 72px;
+      font-size: 26px;
+      font-weight: 800;
+      color: #4f8ef7;
+      letter-spacing: -0.01em;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar"></div>
+  <div class="glow"></div>
+
+  <div class="content">
+    <div class="top">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Meetup &nbsp;&middot;&nbsp; Pune AI Builders
+      </div>
+
+      <div class="title-block">
+        <div class="title-line1">WTF is <span>Jev?</span></div>
+        <div class="title-line2">Understanding Jev &amp; Building Production AI Systems</div>
+      </div>
+
+      <div class="tech-tags">
+        Jev <span class="tech-dot">·</span> Evaluation <span class="tech-dot">·</span> Reliability <span class="tech-dot">·</span> Observability <span class="tech-dot">·</span> Production AI
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value">10</div>
+        <div class="stat-label">October 2026</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">90</div>
+        <div class="stat-label">Minutes Hands-on</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">&#8377;999</div>
+        <div class="stat-label">Per Seat</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">Online + Offline</div>
+        <div class="stat-label">Zoom &amp; Hinjawadi</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="branding">RebindRise</div>
+</body>
+</html>
