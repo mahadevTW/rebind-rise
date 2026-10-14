@@ -75,7 +75,7 @@ button{cursor:pointer}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
 /* Lists */
 .bars{display:flex;flex-direction:column;gap:12px}
-.bar-row{display:grid;grid-template-columns:120px 1fr 48px;gap:10px;align-items:center;font-size:13px}
+.bar-row{display:grid;grid-template-columns:120px 1fr auto;gap:10px;align-items:center;font-size:13px}
 .bar-track{height:10px;background:var(--paper);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
 .bar-fill{height:100%;background:var(--red);border-radius:999px}
 .bar-row span:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
@@ -180,6 +180,9 @@ dialog.rec::backdrop{background:rgba(0,0,0,.35)}
     <button class="nav" data-view="challans">
       <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg><span data-i18n="navChl">E-challans</span>
     </button>
+    <button class="nav" data-view="citizen">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16v12H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg><span data-i18n="navCit">User reports</span><span class="count" id="cnt-cit">3</span>
+    </button>
     <button class="nav" data-view="traffic">
       <svg viewBox="0 0 24 24"><path d="M9 3l-3 18M15 3l3 18M12 6v2M12 11v2M12 16v2"/></svg><span data-i18n="navTraffic">Traffic map</span>
     </button>
@@ -229,6 +232,26 @@ dialog.rec::backdrop{background:rgba(0,0,0,.35)}
             <h2 data-i18n="topViol">Top violations</h2>
             <p data-i18n="topViolP">Share of today's challans by type.</p>
             <div class="bars" id="top-viol"></div>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="panel">
+            <h2 data-i18n="ovCitT">Citizen reports</h2>
+            <p data-i18n="ovCitP">Reports from the citizen app, last 7 days.</p>
+            <svg class="chart" viewBox="0 0 640 230" role="img" aria-label="Bar chart of citizen reports per day">
+              <g id="cit-days"></g>
+            </svg>
+            <div class="kpis" style="grid-template-columns:repeat(3,minmax(0,1fr));margin-top:14px">
+              <div class="kpi" style="padding:12px 14px"><span class="lbl" data-i18n="ovTotal">Reports this week</span><b id="cit-total" style="font-size:22px">0</b></div>
+              <div class="kpi" style="padding:12px 14px"><span class="lbl" data-i18n="ovVerRate">Verified rate</span><b id="cit-rate" style="font-size:22px">0%</b></div>
+              <div class="kpi" style="padding:12px 14px"><span class="lbl" data-i18n="ovAvg">Average AI match</span><b id="cit-match" style="font-size:22px">0%</b></div>
+            </div>
+          </div>
+          <div class="panel">
+            <h2 data-i18n="ovOutT">Report outcomes</h2>
+            <p data-i18n="ovOutP">Status of every citizen report in the system.</p>
+            <div class="bars" id="cit-outcomes"></div>
           </div>
         </div>
 
@@ -282,6 +305,23 @@ dialog.rec::backdrop{background:rgba(0,0,0,.35)}
           <table aria-label="E-challans">
             <thead><tr><th data-i18n="thNo">Challan no.</th><th data-i18n="thVeh">Vehicle</th><th data-i18n="thVio">Violation</th><th data-i18n="thIssued">Issued</th><th data-i18n="thAmt">Amount</th><th data-i18n="thStatus">Status</th></tr></thead>
             <tbody id="chl"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- USER REPORTS -->
+      <section class="section" data-section="citizen">
+        <div class="sample" data-i18n="cvP">Reports from the citizen app, checked by AI. Verify a report to issue a challan.</div>
+        <div class="toolbar" role="group" aria-label="Filter user reports">
+          <button class="chip" aria-pressed="true" data-kfilter="all" data-i18n="fAll">All</button>
+          <button class="chip" aria-pressed="false" data-kfilter="new" data-i18n="fNew">New</button>
+          <button class="chip" aria-pressed="false" data-kfilter="verified" data-i18n="cvVer">Verified</button>
+          <button class="chip" aria-pressed="false" data-kfilter="rejected" data-i18n="cvRej">Rejected</button>
+        </div>
+        <div class="table-wrap">
+          <table aria-label="Violations reported by citizens">
+            <thead><tr><th data-i18n="thId">ID</th><th data-i18n="thVio">Violation</th><th data-i18n="thLoc">Location</th><th data-i18n="thRep">Reported</th><th data-i18n="thPhotos">Photos</th><th data-i18n="thMatch">AI match</th><th data-i18n="thStatus">Status</th><th data-i18n="thAction">Action</th></tr></thead>
+            <tbody id="cit"></tbody>
           </table>
         </div>
       </section>
@@ -379,7 +419,7 @@ dialog.rec::backdrop{background:rgba(0,0,0,.35)}
 <dialog class="rec" id="dlg" aria-labelledby="dlg-title">
   <div class="rec-head"><h3 id="dlg-title">Record</h3><button class="act" data-close data-i18n="btnClose">Close</button></div>
   <div class="rec-body" id="dlg-body"></div>
-  <div class="rec-foot"><button class="act" data-close data-i18n="btnClose">Close</button><button class="act primary" id="dlg-decide">Mark resolved</button></div>
+  <div class="rec-foot"><button class="act" data-close data-i18n="btnClose">Close</button><button class="act danger" id="dlg-reject" hidden data-i18n="btnReject">Reject</button><button class="act primary" id="dlg-decide">Mark resolved</button></div>
 </dialog>
 
 <script>
@@ -389,7 +429,7 @@ dialog.rec::backdrop{background:rgba(0,0,0,.35)}
 
   const T = {
     en: {
-      brand: "PTP Admin", hdrSub: "Pune City Traffic Police", signedBy: "Signed in as Duty Officer, Shivajinagar Unit",
+      brand: "PTP Admin", ovCitT: "Citizen reports", ovCitP: "Reports from the citizen app, last 7 days.", ovTotal: "Reports this week", ovVerRate: "Verified rate", ovAvg: "Average AI match", ovOutT: "Report outcomes", ovOutP: "Status of every citizen report in the system.", ovPending: "Pending review", wd: ["Wed", "Thu", "Fri", "Sat", "Sun", "Mon", "Tue"], navCit: "User reports", cvTitle: "Violations reported by citizens", cvP: "Reports from the citizen app, checked by AI. Verify a report to issue a challan.", thPhotos: "Photos", thMatch: "AI match", btnReview: "Review", btnIssue: "Issue challan", btnReject: "Reject", lbl_verified: "Verified, challan issued", lbl_rejected: "Rejected", cvVer: "Verified", cvRej: "Rejected", msgIssued: "{id} verified, challan issued", msgRejected: "{id} rejected", recPhotos: "Photos", recMatch: "AI match", recLoc: "Location", hdrSub: "Pune City Traffic Police", signedBy: "Signed in as Duty Officer, Shivajinagar Unit",
       navOverview: "Overview", navGrv: "Grievances", navInc: "Incidents", navChl: "E-challans", navTraffic: "Traffic map", navReports: "Reports", navProfile: "My profile",
       search: "Search vehicle no., challan no. or ID", sample: "Sample data for design review. Figures and records are not real.",
       kpi1: "Challans issued today", kpi2: "Open grievances", kpi3: "Incidents, last 24 h", kpi4: "Fines collected, today", vsWeek: "vs last week", sinceYest: "since yesterday",
@@ -414,7 +454,7 @@ dialog.rec::backdrop{background:rgba(0,0,0,.35)}
       mo: ["May", "Jun", "Jul", "Aug", "Sep", "Oct"], brandTitle: "PTP Admin", navTitles: null
     },
     mr: {
-      brand: "PTP प्रशासन", hdrSub: "पुणे शहर वाहतूक पोलीस", signedBy: "शिवाजीनगर विभाग, ड्युटी अधिकारी म्हणून साइन इन",
+      brand: "PTP प्रशासन", ovCitT: "नागरिक अहवाल", ovCitP: "नागरिक ॲपवरील अहवाल, मागील 7 दिवस.", ovTotal: "या आठवड्यातील अहवाल", ovVerRate: "सत्यापन दर", ovAvg: "सरासरी AI जुळणी", ovOutT: "अहवालांचे निकाल", ovOutP: "सिस्टममधील प्रत्येक नागरिक अहवालाची स्थिती.", ovPending: "तपासणी प्रलंबित", wd: ["बुध", "गुरू", "शुक्र", "शनि", "रवि", "सोम", "मंगळ"], navCit: "नागरिक अहवाल", cvTitle: "नागरिकांनी नोंदवलेली उल्लंघने", cvP: "नागरिक ॲपवरील अहवाल, AI ने तपासलेले. चलान जारी करण्यासाठी अहवाल सत्यापित करा.", thPhotos: "फोटो", thMatch: "AI जुळणी", btnReview: "तपासा", btnIssue: "चलान जारी करा", btnReject: "नाकारा", lbl_verified: "सत्यापित, चलान जारी", lbl_rejected: "नाकारले", cvVer: "सत्यापित", cvRej: "नाकारले", msgIssued: "{id} सत्यापित, चलान जारी", msgRejected: "{id} नाकारले", recPhotos: "फोटो", recMatch: "AI जुळणी", recLoc: "ठिकाण", hdrSub: "पुणे शहर वाहतूक पोलीस", signedBy: "शिवाजीनगर विभाग, ड्युटी अधिकारी म्हणून साइन इन",
       navOverview: "आढावा", navGrv: "तक्रारी", navInc: "घटना", navChl: "ई-चलान", navTraffic: "वाहतूक नकाशा", navReports: "अहवाल", navProfile: "माझे प्रोफाइल",
       search: "वाहन क्र., चलान क्र. किंवा ID शोधा", sample: "डिझाइन पुनरावलोकनासाठी नमुना डेटा. आकडे आणि नोंदी खऱ्या नाहीत.",
       kpi1: "आज जारी चलान", kpi2: "खुल्या तक्रारी", kpi3: "घटना, मागील 24 तास", kpi4: "आज वसूल दंड", vsWeek: "मागील आठवड्याच्या तुलनेत", sinceYest: "कालपासून",
@@ -439,7 +479,7 @@ dialog.rec::backdrop{background:rgba(0,0,0,.35)}
       mo: ["मे", "जून", "जुलै", "ऑग", "सप्टें", "ऑक्टो"]
     },
     hi: {
-      brand: "PTP एडमिन", hdrSub: "पुणे सिटी ट्रैफिक पुलिस", signedBy: "शिवाजीनगर इकाई, ड्यूटी अधिकारी के रूप में साइन इन",
+      brand: "PTP एडमिन", ovCitT: "नागरिक रिपोर्ट", ovCitP: "नागरिक ऐप से आई रिपोर्ट, पिछले 7 दिन।", ovTotal: "इस हफ़्ते की रिपोर्ट", ovVerRate: "सत्यापन दर", ovAvg: "औसत AI मिलान", ovOutT: "रिपोर्ट के परिणाम", ovOutP: "सिस्टम में हर नागरिक रिपोर्ट की स्थिति।", ovPending: "समीक्षा लंबित", wd: ["बुध", "गुरु", "शुक्र", "शनि", "रवि", "सोम", "मंगल"], navCit: "नागरिक रिपोर्ट", cvTitle: "नागरिकों द्वारा रिपोर्ट किए गए उल्लंघन", cvP: "नागरिक ऐप से आई रिपोर्ट, AI द्वारा जाँची गई। चालान जारी करने के लिए रिपोर्ट सत्यापित करें।", thPhotos: "फ़ोटो", thMatch: "AI मिलान", btnReview: "जाँचें", btnIssue: "चालान जारी करें", btnReject: "खारिज करें", lbl_verified: "सत्यापित, चालान जारी", lbl_rejected: "खारिज", cvVer: "सत्यापित", cvRej: "खारिज", msgIssued: "{id} सत्यापित, चालान जारी", msgRejected: "{id} खारिज", recPhotos: "फ़ोटो", recMatch: "AI मिलान", recLoc: "स्थान", hdrSub: "पुणे सिटी ट्रैफिक पुलिस", signedBy: "शिवाजीनगर इकाई, ड्यूटी अधिकारी के रूप में साइन इन",
       navOverview: "अवलोकन", navGrv: "शिकायतें", navInc: "घटनाएँ", navChl: "ई-चालान", navTraffic: "ट्रैफिक नक्शा", navReports: "रिपोर्ट", navProfile: "मेरी प्रोफ़ाइल",
       search: "वाहन नंबर, चालान नंबर या ID खोजें", sample: "डिज़ाइन समीक्षा के लिए नमूना डेटा। आंकड़े और रिकॉर्ड असली नहीं हैं।",
       kpi1: "आज जारी चालान", kpi2: "खुली शिकायतें", kpi3: "घटनाएँ, पिछले 24 घंटे", kpi4: "आज वसूला गया जुर्माना", vsWeek: "पिछले हफ़्ते की तुलना में", sinceYest: "कल से",
@@ -493,6 +533,14 @@ dialog.rec::backdrop{background:rgba(0,0,0,.35)}
     { no: "MH12 XX 2119", veh: "MH 12 GH 3056", vk: "v_tint", at: "10-10, 13:15", amt: "₹500", st: "paid", lk: "lbl_paid" },
     { no: "MH12 XX 2103", veh: "MH 12 JK 9012", vk: "v_foot", at: "10-10, 10:30", amt: "₹500", st: "unpaid", lk: "lbl_unpaid" }
   ];
+  const CIT = [
+    { id: "REP-5531", vk: "v_wrong", loc: "Karve Road, near Nal Stop", at: "13-10, 10:12", ph: 2, match: "94%", st: "new" },
+    { id: "REP-5528", vk: "v_foot", loc: "FC Road, Hotel Sujata", at: "13-10, 08:55", ph: 1, match: "88%", st: "new" },
+    { id: "REP-5519", vk: "v_triple", loc: "Sinhagad Road, Vitthalwadi", at: "12-10, 19:30", ph: 3, match: "91%", st: "verified" },
+    { id: "REP-5502", vk: "v_tint", loc: "Shivajinagar Chowk", at: "11-10, 16:40", ph: 1, match: "42%", st: "rejected" },
+    { id: "REP-5497", vk: "v_np", loc: "Deccan Gymkhana, Gate 2", at: "10-10, 12:05", ph: 2, match: "97%", st: "verified" }
+  ];
+  let citFilter = "all";
   const TOP = [["v_np", 34], ["v_wrong", 22], ["v_foot", 18], ["v_triple", 14], ["v_tint", 12]];
   const HOURLY = [12, 18, 26, 34, 41, 38, 30, 27, 24, 29, 36, 48, 57, 52, 44, 31, 22];
   const HOURS = ["6a", "7a", "8a", "9a", "10a", "11a", "12p", "1p", "2p", "3p", "4p", "5p", "6p", "7p", "8p", "9p", "10p"];
@@ -501,6 +549,7 @@ dialog.rec::backdrop{background:rgba(0,0,0,.35)}
 
   function pill(cls, text) { return '<span class="pill ' + cls + '">' + esc(text) + "</span>"; }
   function actBtn(id, st) {
+    if (id.startsWith("REP") && st === "new") return '<button class="act primary" data-act="open" data-id="' + esc(id) + '">' + esc(t("btnReview")) + "</button>";
     if (st === "new") return '<button class="act primary" data-act="assign" data-id="' + esc(id) + '">' + esc(t("btnAssign")) + "</button>";
     return '<button class="act" data-act="open" data-id="' + esc(id) + '">' + esc(t("btnOpen")) + "</button>";
   }
@@ -528,6 +577,41 @@ dialog.rec::backdrop{background:rgba(0,0,0,.35)}
       ["GRV-2037", "grvType", "RCP-88213", "pri_low", "low", "lbl_review", "review"]
     ];
     $("#attn").innerHTML = items.map((r) => '<tr><td class="num">' + esc(r[0]) + "</td><td>" + esc(t(r[1])) + '</td><td class="muted">' + esc(r[2]) + "</td><td>" + pill(r[4], t(r[3])) + "</td><td>" + pill(r[6], t(r[5])) + "</td><td>" + actBtn(r[0], r[6]) + "</td></tr>").join("");
+  }
+  const citState = (st) => ({ new: ["new", "lbl_new"], verified: ["done", "lbl_verified"], rejected: ["low", "lbl_rejected"] })[st];
+  function renderCit() {
+    const rows = CIT.filter((c) => citFilter === "all" || c.st === citFilter);
+    $("#cit").innerHTML = rows.length
+      ? rows.map((c) => { const [cls, lk] = citState(c.st); return '<tr><td class="num">' + esc(c.id) + "</td><td>" + esc(t(c.vk)) + '</td><td class="muted">' + esc(c.loc) + '</td><td class="muted">' + esc(c.at) + '</td><td class="num">' + c.ph + '</td><td class="num">' + esc(c.match) + "</td><td>" + pill(cls, t(lk)) + "</td><td>" + actBtn(c.id, c.st) + "</td></tr>"; }).join("")
+      : empty(8, "emptyG");
+  }
+  const CIT_DAYS = [9, 14, 11, 17, 22, 19, 12];
+  function renderCitAnalytics() {
+    const days = T[lang].wd;
+    const W = 640, H = 230, pad = { l: 36, r: 12, t: 12, b: 28 };
+    const max = 25, bw = (W - pad.l - pad.r) / CIT_DAYS.length, g = [];
+    for (let v = 0; v <= max; v += 5) {
+      const y = pad.t + (H - pad.t - pad.b) * (1 - v / max);
+      g.push('<line x1="' + pad.l + '" x2="' + (W - pad.r) + '" y1="' + y + '" y2="' + y + '" stroke="var(--line)"/>');
+      g.push('<text x="' + (pad.l - 8) + '" y="' + (y + 4) + '" text-anchor="end" font-size="11" fill="var(--muted)">' + v + "</text>");
+    }
+    CIT_DAYS.forEach((v, i) => {
+      const x = pad.l + i * bw + bw * 0.2, w = bw * 0.6, h = (H - pad.t - pad.b) * (v / max), y = H - pad.b - h;
+      g.push('<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="4" fill="var(--red)"><title>' + days[i] + ": " + v + "</title></rect>");
+      g.push('<text x="' + (x + w / 2) + '" y="' + (H - 8) + '" text-anchor="middle" font-size="11" fill="var(--muted)">' + days[i] + "</text>");
+    });
+    $("#cit-days").innerHTML = g.join("");
+    const total = CIT.length;
+    const verified = CIT.filter((c) => c.st === "verified").length;
+    const rejected = CIT.filter((c) => c.st === "rejected").length;
+    const pending = CIT.filter((c) => c.st === "new").length;
+    const decided = verified + rejected;
+    const avg = Math.round(CIT.reduce((a, c) => a + parseInt(c.match, 10), 0) / total);
+    $("#cit-total").textContent = CIT_DAYS.reduce((a, b) => a + b, 0);
+    $("#cit-rate").textContent = (decided ? Math.round((verified / decided) * 100) : 0) + "%";
+    $("#cit-match").textContent = avg + "%";
+    const rows = [["cvVer", verified, "var(--green)"], ["ovPending", pending, "var(--ai)"], ["cvRej", rejected, "var(--muted)"]];
+    $("#cit-outcomes").innerHTML = rows.map((r) => '<div class="bar-row"><span>' + esc(t(r[0])) + '</span><div class="bar-track"><div class="bar-fill" style="width:' + Math.round((r[1] / total) * 100) + "%;background:" + r[2] + '"></div></div><span style="white-space:nowrap">' + r[1] + " (" + Math.round((r[1] / total) * 100) + "%)</span></div>").join("");
   }
   function renderTopViol() {
     const max = Math.max.apply(null, TOP.map((x) => x[1]));
@@ -566,7 +650,9 @@ dialog.rec::backdrop{background:rgba(0,0,0,.35)}
   }
 
   function renderDynamic() {
-    renderGrv(); renderInc(); renderChl(); renderAttention(); renderTopViol(); renderHourly(); renderLine();
+    renderGrv(); renderInc(); renderChl(); renderCit(); renderAttention(); renderTopViol(); renderHourly(); renderLine();
+    $("#cnt-cit").textContent = CIT.filter((c) => c.st === "new").length;
+    renderCitAnalytics();
     $("#cnt-grv").textContent = GRV.filter((g) => g.st !== "done").length;
     $("#cnt-inc").textContent = INC.filter((i) => i.st !== "done").length;
   }
@@ -581,9 +667,10 @@ dialog.rec::backdrop{background:rgba(0,0,0,.35)}
     document.querySelectorAll(".lang").forEach((b) => b.setAttribute("aria-pressed", b.dataset.lang === lang ? "true" : "false"));
     document.querySelectorAll("[data-filter]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.filter === grvFilter ? "true" : "false"));
     document.querySelectorAll("[data-cfilter]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.cfilter === chlFilter ? "true" : "false"));
+    document.querySelectorAll("[data-kfilter]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.kfilter === citFilter ? "true" : "false"));
   }
 
-  const TITLE_KEYS = { overview: "navOverview", grievances: "navGrv", incidents: "navInc", challans: "navChl", traffic: "navTraffic", reports: "navReports", profile: "navProfile" };
+  const TITLE_KEYS = { citizen: "navCit", overview: "navOverview", grievances: "navGrv", incidents: "navInc", challans: "navChl", traffic: "navTraffic", reports: "navReports", profile: "navProfile" };
   function show(v) {
     view = v;
     document.querySelectorAll(".nav").forEach((b) => { if (b.dataset.view === v) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
@@ -600,7 +687,7 @@ dialog.rec::backdrop{background:rgba(0,0,0,.35)}
     const d = $("#dlg-decide"); if (d && $("#dlg").open && openId) openRec(openId);
   }
 
-  function find(id) { return GRV.find((x) => x.id === id) || INC.find((x) => x.id === id) || CHL.find((x) => x.no === id); }
+  function find(id) { return GRV.find((x) => x.id === id) || INC.find((x) => x.id === id) || CHL.find((x) => x.no === id) || CIT.find((x) => x.id === id); }
   function refreshAll() { renderDynamic(); }
   function assign(id) {
     const r = find(id); if (!r) return;
@@ -615,11 +702,21 @@ dialog.rec::backdrop{background:rgba(0,0,0,.35)}
     openId = id;
     $("#dlg-title").textContent = id;
     const typeText = r.ik ? t(r.ik) : r.vk ? t(r.vk) : t("grvType");
-    const rows = [[t("recStatus"), t(r.lk)], [t("recRef"), r.ref || r.loc || r.no], [t("recVeh"), r.veh || "-"], [t("recFiled"), r.filed || r.at || "-"], [t("recType"), typeText]];
+    let rows;
+    if (r.vk && r.id && r.id.startsWith("REP")) {
+      const cst = citState(r.st);
+      rows = [[t("recStatus"), t(cst[1])], [t("recType"), t(r.vk)], [t("recLoc"), r.loc], [t("recFiled"), r.at], [t("recPhotos"), String(r.ph)], [t("recMatch"), r.match]];
+    } else {
+      rows = [[t("recStatus"), t(r.lk)], [t("recRef"), r.ref || r.loc || r.no], [t("recVeh"), r.veh || "-"], [t("recFiled"), r.filed || r.at || "-"], [t("recType"), typeText]];
+    }
     $("#dlg-body").innerHTML = rows.map((x) => '<div class="rec-row"><span>' + esc(x[0]) + "</span><b>" + esc(x[1]) + "</b></div>").join("");
     const decide = $("#dlg-decide");
     decide.disabled = r.st === "done";
-    decide.textContent = r.st === "done" ? t("btnAlready") : t("btnResolve");
+    const isRep = id.startsWith("REP");
+    decide.textContent = isRep ? t("btnIssue") : (r.st === "done" ? t("btnAlready") : t("btnResolve"));
+    decide.disabled = isRep ? r.st !== "new" : r.st === "done";
+    $("#dlg-reject").hidden = !isRep;
+    $("#dlg-reject").disabled = r.st !== "new";
     if (!$("#dlg").open) $("#dlg").showModal();
   }
   function toast(msg) {
@@ -641,9 +738,16 @@ dialog.rec::backdrop{background:rgba(0,0,0,.35)}
   });
   $("#dlg-decide").addEventListener("click", () => {
     const r = find(openId); if (!r) return;
+    if (openId.startsWith("REP")) { r.st = "verified"; $("#dlg").close(); refreshAll(); toast(t("msgIssued").replace("{id}", openId)); return; }
     r.st = "done"; r.lk = "lbl_resolved";
     $("#dlg").close(); refreshAll(); toast(t("msgResolved").replace("{id}", openId));
   });
+  $("#dlg-reject").addEventListener("click", () => {
+    const r = find(openId); if (!r) return;
+    r.st = "rejected";
+    $("#dlg").close(); refreshAll(); toast(t("msgRejected").replace("{id}", openId));
+  });
+  document.querySelectorAll("[data-kfilter]").forEach((b) => b.addEventListener("click", () => { citFilter = b.dataset.kfilter; applyStatic(); renderCit(); }));
   $("#logout").addEventListener("click", () => { $("#gate").hidden = false; $("#signin").focus(); });
   $("#signin").addEventListener("click", () => { $("#gate").hidden = true; show("overview"); toast(t("msgSignedIn")); });
   $("#edit-prof").addEventListener("click", () => toast(t("msgEdit")));
