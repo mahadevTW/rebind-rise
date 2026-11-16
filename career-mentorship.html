@@ -7,7 +7,7 @@
   <meta name="description" content="Get a personalized AI-powered career roadmap with 1-on-1 expert mentorship. Career switch or upgrade — we help you reach a better role, company, and salary faster." />
   <link rel="canonical" href="https://rebindrise.com/career-mentorship" />
   <link rel="icon" type="image/png" href="/assets/img.png" />
-  <link rel="apple-touch-icon" href="/assets/img.png.png" />
+  <link rel="apple-touch-icon" href="/assets/img.png" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -250,7 +250,7 @@
     .lf-label { font-size: 0.72rem; color: var(--muted2); font-weight: 700; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 8px; }
     .lf-chips { display: flex; flex-wrap: wrap; gap: 6px; }
     .lf-chip { font-size: 0.78rem; color: var(--muted); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 6px; padding: 4px 10px; display: flex; align-items: center; gap: 5px; }
-    .lf-chip::before { content: '✓'; color: var(--green); font-size: 0.7rem; }
+    .lf-chip::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }
 
     /* transformations */
     .transform-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
@@ -392,6 +392,8 @@
     @media (max-width: 960px) { .footer-top { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 600px) { .footer-top { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; text-align: center; } }
   </style>
+  <link rel="stylesheet" href="./assets/redesign.css">
+  <script type="module" src="./assets/redesign.js"></script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -476,7 +478,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="grid-3">
       <div class="wyg-card">
-        <div class="wyg-icon" style="background:rgba(79,142,247,0.12);">🤖</div>
+        <div class="wyg-icon" style="background:rgba(79,142,247,0.12);">AI</div>
         <h3>AI Career Assessment</h3>
         <div class="wyg-sub">We analyze:</div>
         <ul class="check-list">
@@ -488,7 +490,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
       </div>
       <div class="wyg-card">
-        <div class="wyg-icon" style="background:rgba(167,139,250,0.12);">🗺️</div>
+        <div class="wyg-icon" style="background:rgba(167,139,250,0.12);">MAP</div>
         <h3>Personalized Career Roadmap</h3>
         <div class="wyg-sub">Get a clear action plan showing:</div>
         <ul class="check-list">
@@ -501,7 +503,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
       </div>
       <div class="wyg-card">
-        <div class="wyg-icon" style="background:rgba(52,211,153,0.12);">🧑‍💼</div>
+        <div class="wyg-icon" style="background:rgba(52,211,153,0.12);">1:1</div>
         <h3>One-on-One Expert Mentorship</h3>
         <div class="wyg-sub">Work directly with industry mentors:</div>
         <ul class="check-list">
@@ -563,7 +565,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="grid-2">
       <div class="audience-card">
-        <div class="audience-head"><span>📈</span><h3>Career Upgrade</h3></div>
+      <div class="audience-head"><span class="icon" aria-hidden="true">UP</span><h3>Career Upgrade</h3></div>
         <p>Already working in tech but want a better company, salary, or role? We help you navigate the jump.</p>
         <div class="tags">
           <span class="tag">Software Engineers</span>
@@ -582,7 +584,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="audience-card">
-        <div class="audience-head"><span>🔄</span><h3>Career Switch</h3></div>
+      <div class="audience-head"><span class="icon" aria-hidden="true">SW</span><h3>Career Switch</h3></div>
         <p>Ready to pivot into a high-growth technology domain? We map the shortest, clearest path to get there.</p>
         <div class="tags">
           <span class="tag purple">Full Stack Development</span>
@@ -614,23 +616,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="transform-grid">
       <div class="transform-card">
-        <div class="t-icon" style="background:rgba(79,142,247,0.12);">☕</div>
+        <div class="t-icon" style="background:rgba(79,142,247,0.12);">JV</div>
         <div class="t-body"><strong>Java Developer</strong><span>6 LPA <span class="t-arrow">→</span> 15 LPA+</span></div>
       </div>
       <div class="transform-card">
-        <div class="t-icon" style="background:rgba(52,211,153,0.12);">🧪</div>
+        <div class="t-icon" style="background:rgba(52,211,153,0.12);">QA</div>
         <div class="t-body"><strong>Manual Tester</strong><span>QA <span class="t-arrow">→</span> Full Stack Developer</span></div>
       </div>
       <div class="transform-card">
-        <div class="t-icon" style="background:rgba(167,139,250,0.12);">🛠️</div>
+        <div class="t-icon" style="background:rgba(167,139,250,0.12);">DEV</div>
         <div class="t-body"><strong>Support Engineer</strong><span>Support <span class="t-arrow">→</span> Software Engineer</span></div>
       </div>
       <div class="transform-card">
-        <div class="t-icon" style="background:rgba(34,211,238,0.12);">⚙️</div>
+        <div class="t-icon" style="background:rgba(34,211,238,0.12);">OPS</div>
         <div class="t-body"><strong>Backend Developer</strong><span>Backend <span class="t-arrow">→</span> AI Engineer</span></div>
       </div>
       <div class="transform-card">
-        <div class="t-icon" style="background:rgba(79,142,247,0.12);">🏢</div>
+        <div class="t-icon" style="background:rgba(79,142,247,0.12);">ORG</div>
         <div class="t-body"><strong>Service Company</strong><span>TCS/Infosys <span class="t-arrow">→</span> Product Company</span></div>
       </div>
     </div>
@@ -646,32 +648,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="why-grid">
       <div class="why-card">
-        <div class="icon">🎯</div>
+        <div class="icon">01</div>
         <h3>100% Personalized Guidance</h3>
         <p>Every roadmap is built uniquely for you — your role, your goals, your timeline. No generic advice.</p>
       </div>
       <div class="why-card">
-        <div class="icon">🤖</div>
+        <div class="icon">AI</div>
         <h3>AI-Powered Career Analysis</h3>
         <p>Data-driven recommendations based on market demand, company hiring patterns, and salary benchmarks.</p>
       </div>
       <div class="why-card">
-        <div class="icon">🧭</div>
+        <div class="icon">02</div>
         <h3>Industry-Aligned Learning Path</h3>
         <p>We map exactly what companies actually hire for — so you spend time on what matters most.</p>
       </div>
       <div class="why-card">
-        <div class="icon">🏗️</div>
+        <div class="icon">03</div>
         <h3>Real Project Experience</h3>
         <p>Build portfolio-ready projects that you can show hiring managers — not just certificates.</p>
       </div>
       <div class="why-card">
-        <div class="icon">👨‍💼</div>
+        <div class="icon">EX</div>
         <h3>Expert Mentors</h3>
         <p>10+ years of industry experience. Mentors who have done what you want to do and know the exact path.</p>
       </div>
       <div class="why-card">
-        <div class="icon">👥</div>
+        <div class="icon">1:1</div>
         <h3>Small Batches</h3>
         <p>Personal attention and faster progress. You are not just another student — we know your journey.</p>
       </div>
@@ -688,17 +690,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="grid-3">
       <div class="card" style="text-align:center;padding:32px 24px;">
-        <div style="font-size:2.5rem;margin-bottom:14px;">💰</div>
+        <div class="icon" style="margin-bottom:14px;">01</div>
         <h3>Better Package</h3>
         <p>Higher salary with a clear strategy on when and how to negotiate your next offer.</p>
       </div>
       <div class="card" style="text-align:center;padding:32px 24px;">
-        <div style="font-size:2.5rem;margin-bottom:14px;">🏢</div>
+        <div class="icon" style="margin-bottom:14px;">ORG</div>
         <h3>Better Company</h3>
         <p>Move to top product companies and great engineering cultures that match your ambitions.</p>
       </div>
       <div class="card" style="text-align:center;padding:32px 24px;">
-        <div style="font-size:2.5rem;margin-bottom:14px;">🚀</div>
+        <div class="icon" style="margin-bottom:14px;">02</div>
         <h3>Better Role</h3>
         <p>Meaningful work, faster growth, and a title that reflects the engineer you actually are.</p>
       </div>
