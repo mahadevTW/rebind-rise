@@ -5,7 +5,7 @@
   const path = window.location.pathname;
   const page = path.split("/").pop() || "index.html";
   const isHome = page === "index.html" || page === "";
-  const home = "/index.html";
+  const home = window.location.protocol === "file:" ? "./index.html" : "/index.html";
   document.body.classList.add("rr-site");
   document.body.dataset.page = page.replace(".html", "");
 
@@ -37,7 +37,7 @@
   topbar.className = "rr-topbar";
   topbar.innerHTML = `
     <div class="rr-nav-shell">
-      <a class="rr-nav-brand" href="${home}" aria-label="Rebind Rise home">
+      <a class="rr-nav-brand" href="${home}" title="Rebind Rise" aria-label="Rebind Rise home">
         <img src="/assets/main_logo.png" alt="Rebind Rise — Learn. Build. Lead with AI.">
       </a>
       <nav class="rr-primary-nav" aria-label="Primary navigation">
@@ -53,10 +53,9 @@
         <a class="${page === "career-mentorship.html" ? "is-active" : ""}" href="/career-mentorship.html"><span>Mentorship</span></a>
         <a data-nav="events" class="${path.includes("/workshops/") ? "is-active" : ""}" href="${isHome ? "#events" : "/workshops/jev-10th-october.html"}"><span>Events</span></a>
         <a data-nav="testimonials" href="${href("#testimonials")}"><span>Stories</span></a>
+        <a data-nav="contact" href="${href("#contact")}"><span>Contact</span></a>
       </nav>
       <div class="rr-nav-actions">
-        <a class="rr-nav-contact" href="${href("#contact")}">Contact</a>
-        <a class="rr-nav-cta" href="${href("#contact")}"><span>Enquire now</span>${icon("arrow")}</a>
         <button class="rr-menu-button" type="button" aria-label="Open navigation" aria-expanded="false">${icon("menu")}</button>
       </div>
     </div>
@@ -85,6 +84,67 @@
     </div>
   `;
   document.body.prepend(topbar);
+
+  // Top-left navbar logo handler
+  const handleTopNavbarLogoClick = (e) => {
+    const cleanPath = window.location.pathname.replace(/\/+$/, "").toLowerCase();
+    const isHomePage =
+      cleanPath === "" ||
+      cleanPath === "/" ||
+      cleanPath === "/index.html" ||
+      cleanPath.endsWith("/index.html") ||
+      cleanPath.endsWith("index.html");
+    // Close mobile drawer if open
+    document.body.classList.remove("rr-menu-open");
+    const menuBtn = topbar.querySelector(".rr-menu-button");
+    if (menuBtn) {
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.setAttribute("aria-label", "Open navigation");
+    }
+
+    // Visual feedback bounce animation on top-left logo container
+    const logoEl =
+      topbar.querySelector(".rr-nav-shell > .rr-nav-brand") ||
+      (e && e.target ? e.target.closest(".rr-nav-brand, .nav-logo") : null);
+    if (logoEl) {
+      logoEl.classList.remove("rr-logo-clicked");
+      void logoEl.offsetWidth;
+      logoEl.classList.add("rr-logo-clicked");
+      setTimeout(() => logoEl.classList.remove("rr-logo-clicked"), 400);
+    }
+
+    if (isHomePage) {
+      // Already on the homepage: smoothly scroll to the very top (no reload).
+      if (e) e.preventDefault();
+      if (window.location.hash) {
+        try {
+          history.replaceState(null, "", window.location.pathname + window.location.search);
+        } catch (_) {}
+      }
+      const scrollOptions = { top: 0, left: 0, behavior: reduceMotion ? "auto" : "smooth" };
+      try { window.scrollTo(scrollOptions); } catch (_) { window.scrollTo(0, 0); }
+      return false;
+    }
+
+    // Any other page: go to the homepage via an absolute route (same on every page).
+    if (e) e.preventDefault();
+    window.location.href = home;
+    return false;
+  };
+
+  window.rrHandleLogoClick = handleTopNavbarLogoClick;
+
+  // Single handler for the top-left navbar logo only (never the footer logo). Capture phase so a
+  // page-level script calling stopPropagation() can't swallow it; one binding => one run per click.
+  document.addEventListener(
+    "click",
+    (e) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const brand = e.target.closest(".rr-topbar .rr-nav-brand");
+      if (brand) handleTopNavbarLogoClick(e);
+    },
+    true
+  );
 
   const menuButton = topbar.querySelector(".rr-menu-button");
   const setMenu = (open) => {
@@ -737,28 +797,17 @@
     if (cards.length === 0) return;
 
     const toggleCard = (cardToToggle) => {
-      const isAlreadyExpanded = cardToToggle.classList.contains("is-expanded");
+      const allExpanded = cards.every((c) => c.classList.contains("is-expanded"));
+      const shouldExpand = !allExpanded;
 
       cards.forEach((card) => {
-        if (card !== cardToToggle) {
-          card.classList.remove("is-expanded");
-          card.setAttribute("aria-expanded", "false");
-          const hint = card.querySelector(".who-toggle-hint");
-          if (hint) hint.textContent = "Click to view outcomes";
+        card.classList.toggle("is-expanded", shouldExpand);
+        card.setAttribute("aria-expanded", String(shouldExpand));
+        const hint = card.querySelector(".who-toggle-hint");
+        if (hint) {
+          hint.textContent = shouldExpand ? "Click to collapse outcomes" : "Click to view outcomes";
         }
       });
-
-      if (isAlreadyExpanded) {
-        cardToToggle.classList.remove("is-expanded");
-        cardToToggle.setAttribute("aria-expanded", "false");
-        const hint = cardToToggle.querySelector(".who-toggle-hint");
-        if (hint) hint.textContent = "Click to view outcomes";
-      } else {
-        cardToToggle.classList.add("is-expanded");
-        cardToToggle.setAttribute("aria-expanded", "true");
-        const hint = cardToToggle.querySelector(".who-toggle-hint");
-        if (hint) hint.textContent = "Click to collapse outcomes";
-      }
     };
 
     cards.forEach((card) => {
