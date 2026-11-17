@@ -1,0 +1,10 @@
+{
+  "description": "Explore Rebind Rise’s AI and software engineering courses, career mentorship, and community events to build practical skills and advance your tech career.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
