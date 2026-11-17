@@ -1347,8 +1347,11 @@ body.rr-site > .mobile-menu {
   backdrop-filter: none !important;
 }
 
+.rr-primary-nav > .rr-nav-dropdown {
+  pointer-events: auto;
+}
+
 .rr-primary-nav > a,
-.rr-primary-nav > .rr-nav-dropdown,
 .rr-nav-dropdown > button,
 .rr-nav-contact {
   pointer-events: auto;
@@ -4831,4 +4834,318 @@ body.rr-site > .mobile-menu {
   margin-bottom: -0.16em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+}
+
+/* Small-screen overflow fixes */
+/* Events stage banner: let the long API URL wrap inside its card instead of running past the edge. */
+.rr-banner-meta {
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.rr-endpoint-url {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Course/workshop footers: a single grid column must be allowed to shrink below its widest content. */
+@media (max-width: 480px) {
+  .footer-top {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .footer-top > * {
+    min-width: 0;
+  }
+
+  .footer-contact-row span,
+  .footer-contact-row a {
+    overflow-wrap: anywhere;
+  }
+
+  /* Footer logo: fixed 52px height with auto width can exceed a narrow column; scale it down uniformly. */
+  .footer-brand a img {
+    max-width: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
+}
+
+/* "Why RebindRise" columns: the unconditional two-column !important rule above defeats the
+   single-column mobile rule, squeezing "What we skip" off-screen on phones. Stack below 640px. */
+@media (max-width: 640px) {
+  .diff-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 34px !important;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE POLISH (mobile / tablet) - targeted fixes, desktop unchanged
+   ========================================================================== */
+
+/* Hero stat numbers: parent sets white, but the inner gradient span stayed transparent blue-on-blue (invisible). */
+.rr-immersive-hero .stat-n span,
+.rr-immersive-hero .stat-n span.g,
+.rr-immersive-hero .stat-n span.o {
+  background: none !important;
+  -webkit-text-fill-color: #fff !important;
+  color: #fff !important;
+}
+
+/* ---- Slide-out mobile navigation drawer (right side) with backdrop ---- */
+.rr-drawer-backdrop {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  html.rr-menu-open {
+    overflow: hidden;
+  }
+
+  /* Floating WhatsApp/call buttons would sit on top of the open drawer's bottom button */
+  body.rr-menu-open .sticky-btns {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  body.rr-menu-open {
+    overscroll-behavior: contain;
+  }
+
+  .rr-drawer-backdrop {
+    position: fixed;
+    inset: 70px 0 auto;
+    height: calc(100vh - 70px);
+    height: calc(100dvh - 70px);
+    z-index: 1;
+    display: block;
+    background: rgba(16, 43, 89, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .rr-menu-open .rr-drawer-backdrop {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .rr-mobile-drawer {
+    /* Anchor to the viewport explicitly: the header is the containing block, so bottom:0 alone gives the drawer only its content height. */
+    inset: 70px 0 auto auto;
+    z-index: 2;
+    height: calc(100vh - 70px);
+    height: calc(100dvh - 70px);
+    width: min(84vw, 340px);
+    max-width: 100%;
+    background: #fff;
+    border-left: 1px solid var(--line);
+    box-shadow: -18px 0 48px rgba(16, 43, 89, 0.18);
+    transform: translateX(104%);
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    transition:
+      transform 0.36s cubic-bezier(0.2, 0.75, 0.2, 1),
+      visibility 0.36s ease;
+  }
+
+  .rr-menu-open .rr-mobile-drawer {
+    transform: translateX(0);
+  }
+
+  .rr-mobile-links > a.is-active,
+  .rr-mobile-course-toggle.is-current,
+  .rr-mobile-course-menu > a.is-active {
+    color: var(--electric) !important;
+    background: #f2f7ff;
+    box-shadow: inset 3px 0 0 var(--electric);
+  }
+
+  .rr-mobile-links > a:focus-visible,
+  .rr-mobile-course-toggle:focus-visible,
+  .rr-mobile-course-menu > a:focus-visible,
+  .rr-menu-button:focus-visible {
+    outline: 2px solid var(--electric);
+    outline-offset: -2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rr-mobile-drawer,
+  .rr-drawer-backdrop {
+    transition: none !important;
+  }
+}
+
+/* ---- Phones & small tablets ---- */
+@media (max-width: 860px) {
+  /* Workshop pages: <main> kept its old 70px offset for the former fixed nav, doubling the gap under the new header. */
+  body.rr-site > main {
+    padding-top: 0;
+  }
+
+  /* Touch targets */
+  .rr-immersive-hero .hero-arrow,
+  .hero-arrow {
+    width: 44px;
+    height: 44px;
+  }
+
+  .hero-dots {
+    gap: 4px;
+  }
+
+  .hero-dot {
+    position: relative;
+  }
+
+  .hero-dot::after {
+    content: "";
+    position: absolute;
+    inset: -18px -6px;
+  }
+
+  .footer-col ul li a,
+  .footer-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .footer-col ul {
+    gap: 0;
+  }
+
+  .footer-socials {
+    gap: 10px;
+  }
+
+  .footer-socials a {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Instructor card (inline-styled row): stack avatar above text so the copy gets the full width. */
+  #instructor > .container:not(.tc) {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 18px !important;
+    padding: 24px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Readable minimum text size (was 9.9-11.2px on several labels) */
+  .stat-l,
+  .rr-immersive-hero .stat-l,
+  .hero-eyebrow,
+  .career-pillar-sub,
+  .m-lbl,
+  .who-badge,
+  .course-badge,
+  .rr-status-pill,
+  .eyebrow {
+    font-size: 0.75rem !important;
+  }
+
+  .rr-node-tag,
+  .who-benefit-label {
+    font-size: 0.7rem !important;
+  }
+
+  /* Workshop hero: give the heading breathing room and a normal line-height */
+  #hero .eyebrow + h1 {
+    line-height: 1.12 !important;
+    margin-bottom: 18px !important;
+  }
+
+  /* "Jev?" gradient was blue-on-blue; keep the accent but make it legible on the dark hero */
+  #hero .eyebrow + h1 + p.sub {
+    margin-bottom: 22px !important;
+  }
+
+  #hero .eyebrow + h1 span {
+    background: linear-gradient(90deg, #9cc4ff, #e8f1ff) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+  }
+
+  .sticky-btns {
+    bottom: 12px !important;
+    right: 12px !important;
+  }
+}
+
+/* ---- Touch targets & minimum text size (phones/tablets) ---- */
+@media (max-width: 860px) {
+  .hero-arrow,
+  .rr-immersive-hero .hero-arrow {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .rr-step-btn {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .who-explore-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Small inline text links / dots: keep their look, enlarge only the tappable area (no layout shift). */
+  .rr-card-cta,
+  .rr-card-title a,
+  .contact-text a,
+  .footer-contact-row a,
+  .hero-dot,
+  .rr-carousel-dot,
+  .rr-seg {
+    position: relative;
+  }
+
+  .rr-card-cta::after,
+  .rr-card-title a::after,
+  .contact-text a::after,
+  .footer-contact-row a::after,
+  .rr-carousel-dot::after,
+  .rr-seg::after {
+    content: "";
+    position: absolute;
+    inset: -12px -6px;
+  }
+}
+
+@media (max-width: 600px) {
+  .rr-spec-label,
+  .who-skill-tag,
+  .who-benefit-label,
+  .career-pillar-sub,
+  .rr-node-tag,
+  .hero-eyebrow,
+  .footer-col h3,
+  .contact-text strong {
+    font-size: 0.72rem !important;
+  }
+}
+
+/* ---- Forms on touch screens: 16px text stops iOS Safari auto-zooming on focus; 44px minimum height for easy tapping ---- */
+@media (max-width: 860px) {
+  form input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="submit"]),
+  form select,
+  form textarea {
+    font-size: 16px !important;
+    min-height: 44px;
+  }
+
+  form button[type="submit"],
+  form .btn,
+  form input[type="submit"] {
+    min-height: 48px;
+  }
 }

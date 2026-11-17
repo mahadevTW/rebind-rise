@@ -147,14 +147,56 @@
   );
 
   const menuButton = topbar.querySelector(".rr-menu-button");
-  const setMenu = (open) => {
+  const drawer = topbar.querySelector(".rr-mobile-drawer");
+  drawer.id = "rr-mobile-drawer";
+  menuButton.setAttribute("aria-controls", drawer.id);
+  const backdrop = document.createElement("div");
+  backdrop.className = "rr-drawer-backdrop";
+  backdrop.setAttribute("aria-hidden", "true");
+  topbar.appendChild(backdrop);
+
+  const setMenu = (open, { restoreFocus = false } = {}) => {
     document.body.classList.toggle("rr-menu-open", open);
+    document.documentElement.classList.toggle("rr-menu-open", open); // lock background scroll
     menuButton.setAttribute("aria-expanded", String(open));
     menuButton.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
     menuButton.innerHTML = icon(open ? "close" : "menu");
+    if (restoreFocus) menuButton.focus();
   };
-  menuButton.addEventListener("click", () => setMenu(!document.body.classList.contains("rr-menu-open")));
+  const isMenuOpen = () => document.body.classList.contains("rr-menu-open");
+  menuButton.addEventListener("click", () => setMenu(!isMenuOpen()));
+  backdrop.addEventListener("click", () => setMenu(false));
   topbar.querySelectorAll(".rr-mobile-links a, .rr-mobile-footer a").forEach((link) => link.addEventListener("click", () => setMenu(false)));
+  // Click/tap anywhere outside the drawer and its button closes it.
+  document.addEventListener("click", (event) => {
+    // composedPath() keeps the original click path even though setMenu() swaps the button's icon node.
+    const clickPath = event.composedPath();
+    if (isMenuOpen() && !clickPath.includes(drawer) && !clickPath.includes(menuButton)) setMenu(false);
+  });
+  // Escape closes the drawer (and the desktop Courses dropdown).
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    if (isMenuOpen()) setMenu(false, { restoreFocus: true });
+    desktopDropdown.classList.remove("is-open");
+    desktopDropdownButton.setAttribute("aria-expanded", "false");
+  });
+  // Leaving the mobile breakpoint (rotate / resize) must never leave the page scroll-locked.
+  window.matchMedia("(min-width: 861px)").addEventListener("change", (e) => {
+    if (e.matches) setMenu(false);
+  });
+
+  // Highlight the active page in the drawer; open the Courses accordion when on a course page.
+  topbar.querySelectorAll(".rr-mobile-links > a, .rr-mobile-course-menu > a").forEach((link) => {
+    const url = new URL(link.getAttribute("href"), window.location.href);
+    const samePage = url.pathname.replace(/\/+$/, "") === window.location.pathname.replace(/\/+$/, "");
+    const active = url.hash
+      ? isHome && samePage && url.hash === "#hero" && !window.location.hash
+      : samePage || (path.includes("/workshops/") && url.pathname.includes("/workshops/"));
+    if (active) {
+      link.classList.add("is-active");
+      link.setAttribute("aria-current", "page");
+    }
+  });
 
   const desktopDropdown = topbar.querySelector(".rr-nav-dropdown");
   const desktopDropdownButton = desktopDropdown.querySelector("button");
@@ -178,6 +220,13 @@
     mobileCourseToggle.classList.toggle("is-open", open);
     mobileCourseToggle.setAttribute("aria-expanded", String(open));
   });
+
+  // On a course page, show the Courses group expanded and highlighted in the drawer.
+  if (currentCourse) {
+    mobileCourseMenu.classList.add("is-open");
+    mobileCourseToggle.classList.add("is-open", "is-current");
+    mobileCourseToggle.setAttribute("aria-expanded", "true");
+  }
 
   const progress = document.createElement("div");
   progress.className = "rr-progress";
